@@ -31,6 +31,7 @@ const db = firebase.firestore();
   // Common document fetch with onSnapshot
   const commonsRef = db.collection('commons')
     .where('activeMembers', 'array-conatins', user.id)
+    .where('status', '==', 'active')
     .limit(10);
   const unsubCommons = commonsRef.onSnapshot((commonsQS => {
     const commonsData = commonsQS.map((commonsQDS) => {
@@ -48,6 +49,7 @@ const db = firebase.firestore();
   // Proposal document fetch with onSnapshot
   const proposalsRef = db.collectionGroup('proposals')
     .where('proposer.id', '==', user.id)
+    .where('status', '==', 'active')
     .limit(10);
   const unsubProposale = proposalsRef.onSnapshot((proposalsQS) => {
     const proposalsData = proposalsQS.map((proposalsQDS) => {
@@ -71,6 +73,7 @@ const db = firebase.firestore();
   // Membership request document fetch with onSnapshot
   const commonsRef = db.collection('commons')
     .where('pendingMembers', 'array-conatins', user.id)
+    .where('status', '==', 'active')
     .limit(10);
   const unsubCommons = commonsRef.onSnapshot((commonsQS => {
     const membershipRequestsData = commonsQS.map((commonsQDS) => {
