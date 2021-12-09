@@ -30,7 +30,7 @@ const db = firebase.firestore();
 
   // Common document fetch with onSnapshot
   const commonsRef = db.collection('commons')
-    .where('activeMembers', 'array-conatins', user.id)
+    .where('activeMembers', 'array-contains', user.id)
     .where('status', '==', 'active')
     .limit(10);
   const unsubCommons = commonsRef.onSnapshot((commonsQS => {
