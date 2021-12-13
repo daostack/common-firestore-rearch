@@ -3,8 +3,8 @@
 /**
  * @param screen 1
  panel : db.doc(`users/${user.uid}`)
- ui 2:   db.collection('proposals').where('__name__', 'in', user.recentProposalsIds)
- ui 2:   db.collection('daos').where('id', 'in', user.recentCommonIds)
+ ui 2:   db.collectionGroup('proposals').where('__name__', 'in', user.recentProposalsIds)
+ ui 2:   db.collection('commons').where('__name__', 'in', user.recentCommonIds)
  */
 
 // 08.02.1 account registered user (my account view)
