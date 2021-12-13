@@ -1,4 +1,4 @@
-import {Timestamp} from '~/Firebase';
+import {Timestamp} from 'firebase';
 
 export interface BaseRecord {
   /**

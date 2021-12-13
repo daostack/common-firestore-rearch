@@ -1,4 +1,4 @@
-import {Timestamp} from '~/Firebase';
+import {Timestamp} from 'firebase';
 import {BaseRecord} from './BaseRecord';
 import {PaymentStatus} from './PaymentRecord';
 

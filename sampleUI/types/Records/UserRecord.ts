@@ -1,7 +1,44 @@
-import {Timestamp} from '~/Firebase';
-import {BaseRecord} from './BaseRecord';
+import {Timestamp} from 'firebase';
 
-export interface UserRecord extends BaseRecord {
+export interface UserRecord {
+  
+  /**
+   * The time that the entity
+   * was created
+   */
+   createdAt: Timestamp;
+
+   /**
+    * The last time that the entity
+    * was modified
+    */
+   updatedAt: Timestamp;
+
+   /**
+    * 
+    */
+  recentProposalsIds: string[];
+  
+  /**
+   * 
+   */
+  recentCommonsIds: string[];
+
+
+  /**
+   * 
+   */
+   recentMembershipRequest: string[];
+
+  /**
+   * 
+   */
+  proposals: {
+    all: number,
+    active: number,
+    history: number
+  }
+
   // TODO: remove "uid" from the users collection and use "id";
   // The users collection is the only one that has & use "uid" instead of "id" for representing the unique id.
   // However in the IBaseEntity there is "id" both in mobile app and cloud functions.

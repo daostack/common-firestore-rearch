@@ -1,5 +1,5 @@
 import {BaseRecord} from './BaseRecord';
-import {Timestamp} from '~/Firebase';
+import {Timestamp} from 'firebase';
 
 export interface ModerationRecord extends BaseRecord {
   /**

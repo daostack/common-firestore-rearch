@@ -1,5 +1,4 @@
 import {BaseRecord} from './BaseRecord';
-import {Nullable} from '../../Firebase/types';
 
 export type PaymentType = 'one-time' | 'subscription';
 export type PaymentStatus =
@@ -65,7 +64,7 @@ interface PaymentRecordBase extends BaseRecord {
    * The ID of the subscription, for which the payment was created
    * if created for subscription. Undefined otherwise
    */
-  subscriptionId?: Nullable<string>;
+  subscriptionId?: string;
 
   /**
    * The ID of the user that was charged. Useful for retrieving all
