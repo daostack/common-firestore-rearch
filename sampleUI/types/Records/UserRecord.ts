@@ -65,3 +65,13 @@ export interface UserPublicData {
   photoURL: string;
   uid: string;
 }
+
+export interface UserPaymentMethod {
+  cardType: string,
+  cardHolderName: string;
+  cardNumberLast4Digits: number;
+  cardExpiry: {
+    month: number;
+    year: number;
+  }
+}
