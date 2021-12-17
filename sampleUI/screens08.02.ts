@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata } from 'types/users'
+import { UserRecord, UserMetadata } from './types'
 
 // 08.01 Account registered user empty states
 // 08.02.1 account registered user (my account view)
@@ -10,7 +10,10 @@ import { UserRecord, UserMetadata } from 'types/users'
 
 // Get the user ID from Firebase Authenticationc
 const user: UserRecord = {
-  uid: '123456' // Firebase user ID
+  uid: '123456', // Firebase user ID
+  name: 'Joe Smith',
+  created: {user: {id: '123456', name: 'Joe Smith', profilePic: 'ZXCVBN'}, utc: 123456789},
+  updated: {user: {id: '123456', name: 'Joe Smith', profilePic: 'ZXCVBN'}, utc: 123456789},
 }
 
 // Fetch the publicly viewable user record
