@@ -1,55 +1,48 @@
 import { db } from "firebase";
-import { FundingRequestProposal, UserRecord } from "types";
+import { UserRecord, UserMetadata } from 'types/users'
 
-export const proposalTabCell = (proposal: FundingRequestProposal, proposer: UserRecord) => {
-  return {
-    title: proposal.description,
-    proposerPhotoUrl: proposer.photoURL,
-    amount: proposal,
-  }
+// Get the user ID from Firebase Authenticationc
+const user: UserRecord = {
+  uid: '123456' // Firebase user ID
 }
 
-// 08.03.1 - my account proposals
-export const screen = (user: UserRecord) => {
-  // Tab 1 - All
-  return {
-    tab: [
-      {
-        title: 'All',
-        value: user.proposals.all,
-      },
-      {
-        title: 'Active',
-        value: user.proposals.active,
-      },
-      {
-        title: 'History',
-        value: user.proposals.history,
-      },
-    ],
-    tab1ContentQuery: db
-      .collectionGroup("proposals")
-      .where("__name__", "in", user.recentProposalsIds)
-      .limit(10),
+// Set the user's metadata
+const userMetadata: UserMetadata = {
+  counts: { commons: 0, proposals: 0 },
+  recents: { commonIds: ['123'], proposalIds: ['123']}
+}
 
-    // Tab 2 - Active
-    tab2ContentQuery: db
-      .collectionGroup("proposals")
-      .where("__name__", "in", user.recentProposalsIds)
-      .where("status", "==", "active")
-      .limit(10),
+// 08.03.1
+  // All tab
+  db
+  .collectionGroup("proposals")
+  .where("__name__", "in", userMetadata.recents.proposalIds)
+  .limit(10),
 
-    // Tab 3 - History
-    tab3ContentQuery: db
-      .collectionGroup("proposals")
-      .where("__name__", "in", user.recentProposalsIds)
-      .where("status", "==", "archive")
-      .limit(10),
+  // Tab 2 - Active
+  db
+  .collectionGroup("proposals")
+  .where("__name__", "in", userMetadata.recents.proposalIds)
+  .where("status", "==", "active")
+  .limit(10),
 
+  // Tab 3 - History
+  db
+  .collectionGroup("proposals")
+  .where("__name__", "in", userMetadata.recents.proposalIds)
+  .where("status", "==", "archive")
+  .limit(10),
+
+
+
+
+
+
+  
     // 08.03.2 - my account: my commons
     myCommons: db
       .collection("commons")
-      .where("__name__", "in", user.recentCommonsIds)
+      .where("__name__", "in", userMetadata.recents.commonIds)
       .where("status", "==", "active")
       .limit(10),
 

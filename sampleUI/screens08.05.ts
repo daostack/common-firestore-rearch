@@ -1,11 +1,11 @@
 import { db } from "firebase";
-import { UserRecord, UserPaymentMethod } from "types";
+import { UserRecord, UserPaymentMethod } from "oldTypes";
   
 // 08.05.01 - saved payment method empty
 // 08.05.02 - saved payment method
 // 08.05.03 - saved payment method - payment failed
   // panel 1 - Saved payment method
-  export const paymentMethodsPanel1 = (user: UserRecord) => {
+  export const paymentMethodsPanel1 = async (user: UserRecord) => {
     const paymentMethodDS = await db.doc(`users/${user.uid}/paymentMethods/default`).get();
     const paymentMethod: UserPaymentMethod = paymentMethodDS.data();
     return {

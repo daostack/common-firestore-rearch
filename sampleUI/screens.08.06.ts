@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { CommonRecord } from './types';
+import { CommonRecord } from './oldTypes';
 
 // 08.06.all
 export const screen = (common: CommonRecord) =>
