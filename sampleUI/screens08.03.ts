@@ -1,11 +1,13 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata } from './types'
+import { UserRecord, UserMetadata, ScreenContent } from './types'
 
 // 08.03.1
-export const fetchData_08_03_1 (user: UserRecord, userMetadata: UserMetadata) => {
+export const fetchData_08_03_1 = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
 
   return {
-    mainScreen: {},
+    mainScreen: {
+      name: 'My proposals'
+    },
     tabs: [
       {
         // Tab 1 - All
@@ -39,23 +41,31 @@ export const fetchData_08_03_1 (user: UserRecord, userMetadata: UserMetadata) =>
 
 
 // 08.03.2 - my account: my commons
-export const fetchData_08_03_2 (user: UserRecord, userMetadata: UserMetadata) => {
+export const fetchData_08_03_2 = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
-      ref: db
-        .collection("commons")
-        .where("__name__", "in", userMetadata.recents.commonIds)
-        .where("status", "==", "active")
-        .limit(10)
+      name: 'My commons',
+      components: [
+        {
+          name: 'My Commons',
+          ref: db
+            .collection("commons")
+            .where("__name__", "in", userMetadata.recents.commonIds)
+            .where("status", "==", "active")
+            .limit(10)
+        }
+      ]
     }
   }
 }
 
 // 08.03.3 - my account: Membership requests
-export const fetchData_08_03_3 (user: UserRecord, userMetadata: UserMetadata) => {
+export const fetchData_08_03_3 = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
 
   return {
-    mainScreen: {},
+    mainScreen: {
+      name: 'Membership requests'
+    },
     tabs: [
       {
         // Tab 1 - Pending

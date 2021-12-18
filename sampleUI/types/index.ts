@@ -5,7 +5,7 @@ export * from './users';
 export interface BaseRecord {
   name: string;             // The display name to show in the UI
   intro?: string;            // An introduction
-  image?: string;           // The URL of the  image
+  imageUrl?: string;           // The URL of the  image
   created: DocumentDateTime;
   updated: DocumentDateTime;
 }
@@ -17,4 +17,18 @@ interface DocumentDateTime {
     profilePic: string;     // The user's profile picture in Base64 format
   }
   utc: Timestamp;             // The time that the update was made
+}
+
+export interface ScreenContent {
+  mainScreen?: {
+    name: string;
+    components?: ScreenItem[];
+  }
+  tabs?: ScreenItem[];
+  sections?: ScreenItem[];
+}
+
+interface ScreenItem {
+  name: string;               // The section / tab / screen name
+  ref: string;                // The Cloud FIrestore reference
 }

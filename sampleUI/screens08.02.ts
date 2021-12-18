@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata } from './types'
+import { UserRecord, UserMetadata, ScreenContent } from './types'
 
 // 08.01 Account registered user empty states
 // 08.02.1 account registered user (my account view)
@@ -8,14 +8,22 @@ import { UserRecord, UserMetadata } from './types'
 // User document fetch with onSnapshot
 // Common document fetch with onSnapshot
 
-export const fetchData = (user: UserRecord, userMetadata: UserMetadata) => {
+export const fetchData = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
-      // Fetch the publicly viewable user record
-      db.doc(`users/${user.uid}`)
-
-      // Fetch the user's private metadata
-      db.doc(`users/${user.uid}/private/metadata`)
+      name: 'My profile',
+      components: [
+        {
+          // Fetch the publicly viewable user record
+          name: 'My profile',
+          ref: db.doc(`users/${user.uid}`)
+        },
+        {
+          // Fetch the user's private metadata
+          name: 'My profile (Metadata)',
+          ref: db.doc(`users/${user.uid}/private/metadata`)
+        }
+      ]
     },
     sections: [
       {

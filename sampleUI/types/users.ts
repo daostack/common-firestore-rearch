@@ -33,3 +33,9 @@ export interface UserPaymentMethod extends BaseRecord {
     year: number;           // The year of the card expiry (YYYY)
   }
 }
+
+export interface UserBankAccount extends BaseRecord {
+  bankIDNumber?: number,
+  sortCode: number;
+  accountNumber: number;
+}
