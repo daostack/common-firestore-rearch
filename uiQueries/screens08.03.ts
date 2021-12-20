@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata, ScreenContent } from './types'
+import { UserRecord, UserMetadata, ScreenContent } from '../types'
 
 // 08.03.1
 export const fetchData_08_03_1 = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {

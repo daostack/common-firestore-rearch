@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata, ScreenContent } from './types'
+import { UserRecord, UserMetadata, ScreenContent } from '../types'
 
 // 08.01 Account registered user empty states
 // 08.02.1 account registered user (my account view)

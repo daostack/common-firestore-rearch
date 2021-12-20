@@ -3,11 +3,18 @@ export * from './commons';
 export * from './users';
 
 export interface BaseRecord {
-  name: string;             // The display name to show in the UI
-  intro?: string;            // An introduction
+  name: string;                // The display name to show in the UI
+  intro?: string;              // An introduction
   imageUrl?: string;           // The URL of the  image
+  status: Status;              // enum: [ 'Active', 'Inactive', 'Deleted' ]
   created: DocumentDateTime;
   updated: DocumentDateTime;
+}
+
+enum Status {
+  active = 'Active',
+  inactive = 'Inactive',
+  deleted = 'Deleted'
 }
 
 interface DocumentDateTime {
