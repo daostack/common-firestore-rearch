@@ -1,5 +1,2 @@
-const firebase = require('firebase');
-const db = firebase.firestore();
-
-// 08.07.all
-  db.doc(`commons/${commonId}/subscriptions/{subscriptionId}`)
+// These screens look the same as 08.02
+// There is are some notes on Zeplin about it being confusing and a possible redesign

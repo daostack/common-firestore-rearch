@@ -15,6 +15,7 @@ export const screen_0805 = (user: UserRecord): ScreenContent => {
       {
         name: 'Saved payment method',
         ref: db.doc(`users/${user.uid}/private/paymentMethod`)
+        // This resource may also contain a tag of 'paymentFailed'
       },
       {
         name: 'Monthly contributions',
@@ -25,6 +26,5 @@ export const screen_0805 = (user: UserRecord): ScreenContent => {
           .limit(10),
       }
     ]
-
   }
 }

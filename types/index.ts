@@ -7,14 +7,15 @@ export interface BaseRecord {
   intro?: string;              // An introduction
   imageUrl?: string;           // The URL of the  image
   status: Status;              // enum: [ 'Active', 'Inactive', 'Deleted' ]
+  tags?: string[];             // Tags for a document
   created: DocumentDateTime;
   updated: DocumentDateTime;
 }
 
-enum Status {
-  active = 'Active',
-  inactive = 'Inactive',
-  deleted = 'Deleted'
+export interface History {
+  change: DocumentDateTime;      // The time when the update was made
+  data: any                   // An object containing the previous version of the document
+  _restore?: boolean          // Set this to 'TRUE' to restore this document version.
 }
 
 interface DocumentDateTime {
