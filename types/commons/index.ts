@@ -27,6 +27,7 @@ export interface Common extends BaseRecord {
     totals: {
       raised: number;         // The total raised so far
       proposals: number;      // The total of proposals
+      contributed: number;    // The total contributed
     }
   }
   termsAndConditionsAccepted: boolean;
