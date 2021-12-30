@@ -10,7 +10,7 @@ import { UserRecord, ScreenContent } from "../types";
 // 08.06.07 - Cancel payment - Set `cancelDate` and set a Cloud Task (with a Cloud Function)
 // 08.06.11 - *** Amos *** Where are these values defined? In the common?
 
-export const screen_0806 = (user: UserRecord, commonId: string, subscriptionId: string): ScreenContent => {
+export const viewSubscription = (user: UserRecord, commonId: string, subscriptionId: string): ScreenContent => {
   // More research on Enums required ---- user.status =
   return {
     mainScreen: {

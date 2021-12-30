@@ -5,7 +5,7 @@ export * from './subscriptions';
 
 export interface Common extends BaseRecord {
 
-  _id: string;                // The ID of the Common
+  _id: string;                // Immutable
   // name: string             // The Common Name
   // intro: string;           // The Tagline field
   about: string;              // The long text field
@@ -16,24 +16,42 @@ export interface Common extends BaseRecord {
     }
   ],
   members: {
-    active: Members;
-    pending: Members;
-    rejected: Members;
+    active: Members;           // (CF)
+    pending: Members;          // (CF)
+    rejected: Members;         // (CF)
   }
   financial: {
-    type: string;             // oneTime | monthly
-    balance: number;          // The current balance
+    type: string;             // oneTime | monthly - Is this mmmutable (UI)
+    balance: number;          // The current balance (CF)
+    totalRaised: number;      // Total raised (CF)
     currency: string;         // The currency for the Common
-    totals: {
-      raised: number;         // The total raised so far
-      proposals: number;      // The total of proposals
-      contributed: number;    // The total contributed
+    subscriptions: number;    // Number of subscriptions
+    minimums: {
+      oneTime: number;        // TODO  - Is this mmmutable (UI)
+      monthly: number;        // TODO  - Is this mmmutable (UI)
     }
   }
-  termsAndConditionsAccepted: boolean;
+  fundingProposals: {
+    pending: Totals;
+    approved: Totals;
+    rejected: Totals;
+  }
+  termsAndConditionsAccepted: boolean; // Immutable
+  joinWithoutContribution?: boolean;
+}
+
+export interface Rule extends BaseRecord{
+  // No additional fields required
+  // Rule title => name
+  // Rule description => intro
 }
 
 interface Members {
   count: number;              // The number of members
   ids: string[];              // The IDs of the members
+}
+
+interface Totals {
+  count: number;
+  total: number;
 }

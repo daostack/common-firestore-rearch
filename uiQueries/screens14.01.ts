@@ -2,7 +2,7 @@ import { db } from "firebase";
 import { ScreenContent, UserRecord } from '../types'
 
 // 14.01...
-export const viewNotifications = (user: UserRecord ): ScreenContent => {
+export const listNotifications = (user: UserRecord ): ScreenContent => {
   return {
     mainScreen: {
       name: 'Notifications',

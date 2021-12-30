@@ -2,7 +2,7 @@ import { db } from "firebase";
 import { UserRecord, UserMetadata, ScreenContent } from '../types'
 
 // 08.03.1
-export const fetchData_08_03_1 = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
+export const listProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
 
   return {
     mainScreen: {
@@ -41,7 +41,7 @@ export const fetchData_08_03_1 = (user: UserRecord, userMetadata: UserMetadata):
 
 
 // 08.03.2 - my account: my commons
-export const fetchData_08_03_2 = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
+export const listCommons = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
       name: 'My commons',
@@ -60,7 +60,7 @@ export const fetchData_08_03_2 = (user: UserRecord, userMetadata: UserMetadata):
 }
 
 // 08.03.3 - my account: Membership requests
-export const fetchData_08_03_3 = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
+export const listMembershipRequests = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
 
   return {
     mainScreen: {

@@ -5,7 +5,7 @@ import { UserRecord, ScreenContent } from "../types";
 // 08.05.01 - Recurring payments
 // 08.05.02 - saved payment method
 // 08.05.03 - saved payment method - payment failed
-export const screen_0805 = (user: UserRecord): ScreenContent => {
+export const viewPaymentMethod = (user: UserRecord): ScreenContent => {
   // More research on Enums required ---- user.status =
   return {
     mainScreen: {

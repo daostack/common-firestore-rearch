@@ -19,11 +19,7 @@ export interface History {
 }
 
 interface DocumentDateTime {
-  user: {
-    id: string;             // The ID of the user who made the update
-    name: string;           // The name of the user who made the update
-    profilePic: string;     // The user's profile picture in Base64 format
-  }
+  user: UserProfile;
   utc: Timestamp;             // The time that the update was made
 }
 
@@ -34,6 +30,12 @@ export interface ScreenContent {
   }
   tabs?: ScreenItem[];
   sections?: ScreenItem[];
+}
+
+export interface UserProfile: {
+  id: string;             // The ID of the user who made the update
+  name: string;           // The name of the user who made the update
+  profilePic?: string;     // The user's profile picture in Base64 format
 }
 
 interface ScreenItem {

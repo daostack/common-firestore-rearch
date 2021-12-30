@@ -8,7 +8,7 @@ import { UserRecord, UserMetadata, ScreenContent } from '../types'
 // User document fetch with onSnapshot
 // Common document fetch with onSnapshot
 
-export const fetchData = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
+export const viewMyProfile = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
       name: 'My profile',
