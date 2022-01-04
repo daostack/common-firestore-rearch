@@ -1,7 +1,8 @@
-import { BaseRecord } from '../index';
+import {Timestamp} from 'firebase';
+import { BaseRecord, Currency } from '../index';
 
 export * from './proposals';
-export * from './subscriptions';
+export * from './rules';
 
 export interface Common extends BaseRecord {
 
@@ -24,7 +25,7 @@ export interface Common extends BaseRecord {
     type: string;             // oneTime | monthly - Is this mmmutable (UI)
     balance: number;          // The current balance (CF)
     totalRaised: number;      // Total raised (CF)
-    currency: string;         // The currency for the Common
+    currency: Currency;       // The currency for the Common
     subscriptions: number;    // Number of subscriptions
     minimums: {
       oneTime: number;        // TODO  - Is this mmmutable (UI)
@@ -38,12 +39,7 @@ export interface Common extends BaseRecord {
   }
   termsAndConditionsAccepted: boolean; // Immutable
   joinWithoutContribution?: boolean;
-}
-
-export interface Rule extends BaseRecord{
-  // No additional fields required
-  // Rule title => name
-  // Rule description => intro
+  safetyPeriodExpires: Timestamp;
 }
 
 interface Members {
