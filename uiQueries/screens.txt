@@ -11,8 +11,13 @@
 08.05.02 - userProfile.viewPaymentMethod
 08.05.03 - userProfile.viewPaymentMethod
 08.06.02 - Subscription - Status active
+<<<<<<< HEAD
 08.06.03.01 => commonsMembership.saveSubscription
 08.06.03.02 => commonsMembership.requestToJoin
+=======
+08.06.03.01 => commonsMembership.viewSubscription
+08.06.03.02 => commonsMembership.viewSubscription
+>>>>>>> 85825dc3ac775712cab123b71664078972a018a3
 08.06.03.03 => commonsMembership.viewSubscription
 08.06.03.04  => commonsMembership.viewSubscription- The document contains a `tag` 'paymentFailed'
 08.06.04  => commonsMembership.viewSubscription- Trigger onCall => Request to join again
