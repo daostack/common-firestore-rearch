@@ -1,4 +1,4 @@
-import { firestore } from "firebase"
+import { db } from "firebase"
 import { UserMetadata, UserRecord, ScreenContent } from "../types"
 
 export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
@@ -11,7 +11,7 @@ export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMet
       {
         // Tab 1 - Pending
         name: 'Pending',
-        ref: firestore
+        ref: db
           .collection("commons")
           .where("members.pending.ids", "array-contains", user.uid)
           .where("status", "==", "active")
@@ -20,7 +20,7 @@ export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMet
       {
         // Tab 2 - Approved
         name: 'Approved',
-        ref: firestore
+        ref: db
           .collection("commons")
           .where("members.active.ids", "array-contains", user.uid)
           .where("status", "==", "active")
@@ -29,7 +29,7 @@ export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMet
       {
         // Tab 3 - Rejected
         name: 'Rejected',
-        ref: firestore
+        ref: db
           .collection("members.rejected.ids")
           .where("rejectedMembers", "array-contains", user.uid)
           .where("status", "==", "active")
@@ -47,7 +47,7 @@ export const viewSubscription = (user: UserRecord, commonId: string, subscriptio
       components: [
         {
           name: 'Subscription',
-          ref: firestore.doc(`commons/${commonId}/subscriptions/${subscriptionId}`)
+          ref: db.doc(`commons/${commonId}/subscriptions/${subscriptionId}`)
         }
       ]
     }
