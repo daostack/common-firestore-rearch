@@ -6,7 +6,7 @@ export interface BaseRecord {
   name: string;                // The display name to show in the UI
   intro?: string;              // An introduction
   imageUrl?: string;           // The URL of the  image
-  status: Status;              // enum: [ 'Active', 'Inactive', 'Deleted' ]
+  status: string;              // enum: [ 'Active', 'Inactive', 'Deleted' ]
   tags?: string[];             // Tags for a document
   created: DocumentDateTime;
   updated: DocumentDateTime;
@@ -19,11 +19,7 @@ export interface History {
 }
 
 interface DocumentDateTime {
-  user: {
-    id: string;             // The ID of the user who made the update
-    name: string;           // The name of the user who made the update
-    profilePic: string;     // The user's profile picture in Base64 format
-  }
+  user: UserProfile;
   utc: Timestamp;             // The time that the update was made
 }
 
@@ -36,7 +32,19 @@ export interface ScreenContent {
   sections?: ScreenItem[];
 }
 
+export interface UserProfile {
+  id: string;             // The ID of the user who made the update
+  name: string;           // The name of the user who made the update
+  profilePic?: string;     // The user's profile picture in Base64 format
+}
+
 interface ScreenItem {
   name: string;               // The section / tab / screen name
   ref: string;                // The Cloud FIrestore reference
+}
+
+export interface Currency {
+  code: string;               // The 3 character currency code
+  name: string;               // The currency display name
+  symbol: string;             // The symbol to display £ | $ | € etc.
 }

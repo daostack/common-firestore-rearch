@@ -1,10 +1,7 @@
-import { BaseRecord } from "..";
+import { BaseRecord, UserProfile } from "..";
 
 export interface CommonSubscription extends BaseRecord{
-  user: {
-    uid: string;              // The ID of the user who created the subscription
-    name: string;             // The name of the user who created the subscription
-  }
+  user: UserProfile;
   common: {
     id: string;               // The ID of the parent common
     name: string;             // The name of the parent common
