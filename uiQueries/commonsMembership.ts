@@ -1,5 +1,5 @@
-import { db } from "firebase"
-import { UserMetadata, UserRecord, ScreenContent } from "../types"
+import { db, DocumentReference } from "firebase"
+import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from "../types"
 
 export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
 
@@ -37,6 +37,14 @@ export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMet
       }
     ]
   }
+}
+
+export const saveSunscription = (subscriptionRef: DocumentReference, subscriptionDoc: CommonSubscription) => {
+  return subscriptionRef.set(subscriptionDoc);
+}
+
+export const deleteSunscription = (subscriptionRef: DocumentReference) => {
+  return subscriptionRef.delete();
 }
 
 export const viewSubscription = (user: UserRecord, commonId: string, subscriptionId: string): ScreenContent => {

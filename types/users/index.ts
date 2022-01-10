@@ -1,5 +1,6 @@
 import { BaseRecord } from '../index';
 export * from './notifications';
+export * from './subscriptions';
 export * from './private';
 
 export interface UserRecord extends BaseRecord {
