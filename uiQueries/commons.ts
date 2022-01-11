@@ -9,6 +9,31 @@ export const save = (commonRef: DocumentReference, commonDoc: Common) => {
   return commonRef.set(commonDoc);
 }
 
+export const view = (commonId: string): ScreenContent => {
+  const commonRef = db.doc(`commons/${commonId}`);
+  return {
+    mainScreen: {
+      name: 'common.name',
+      components: [
+        {
+          name: 'common.name',
+          ref: commonRef
+            
+        }
+      ]
+    },
+    tabs: [
+      {
+        name: 'Discussions',
+        ref: commonRef.collection('discussions')
+      },
+      {
+        name: 'Proposals',
+        ref: commonRef.collection('proposals')
+      }
+    ]
+  }}
+
 export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {

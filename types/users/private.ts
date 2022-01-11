@@ -1,3 +1,5 @@
+import { Currency } from "types";
+
 export interface UserMetadata {
 
   counts: {
@@ -8,6 +10,7 @@ export interface UserMetadata {
     commonIds: string[];    // An array of the recently viewed Common IDs
     proposalIds: string[];  // An array of the recently viewed Proposal IDs 
   }
+  localCurrency?: Currency  // The user's local currency code
 }
 
 export interface UserPaymentMethod extends BaseRecord {
