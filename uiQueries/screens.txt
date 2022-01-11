@@ -3,7 +3,17 @@
 04.02.??    => commons.create
 04.03       => commonsRules.create
 04.04       => commons.create
+04.06.1     => commons.create Saved and awaiting response from promise
+04.08.1     => commons.create promise returns error
 04.09.01    => // TODO Where are these values sourced?  Global settings collection?
+04.09.02    => // TODO Where are these values sourced?  Global settings collection?
+04.09.03    => TODO userProfile.saveBillingDetails (TBC) // TODO Are these saved for each common or once per user?
+04.09.04    => TODO Integrate with PSP and save card details to user/{uid}/private/paymentMethod
+04.10.01    => As 04.09.01
+04.10.01    => As 04.09.02
+04.10.03    => userProfile.viewPaymentMethod
+04.10.04    => userProfile.viewPaymentMethod
+
 08.02       => userDashboard
 08.03.1     => commonsProposals.listMyProposals
 08.03.2     => commons.listRecent
