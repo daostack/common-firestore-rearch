@@ -1,4 +1,4 @@
-import { Currency } from "types";
+import { BaseRecord, Currency } from "types";
 
 export interface UserMetadata {
 
@@ -6,7 +6,7 @@ export interface UserMetadata {
     commons: number;        // The number of commons the user is a member of
     proposals: number;      // The number of proposals the user has submitted
   }
-  recents: {
+  recent: {
     commonIds: string[];    // An array of the recently viewed Common IDs
     proposalIds: string[];  // An array of the recently viewed Proposal IDs 
   }

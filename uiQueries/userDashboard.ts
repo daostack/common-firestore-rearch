@@ -1,5 +1,5 @@
 import { db } from "firebase";
-import { UserRecord, UserMetadata, ScreenContent } from '../types'
+import { UserRecord, UserMetadata, ScreenContent } from 'types'
 
 // 08.01 Account registered user empty states
 // 08.02.1 account registered user (my account view)
@@ -29,8 +29,9 @@ export const viewMyProfile = (user: UserRecord, userMetadata: UserMetadata): Scr
       {
         // Commons section
         name: 'Commons',
+        // TODO:
         ref: db.collection('commons')
-          .where('__name__', 'in', userMetadata.recents.commonIds)
+          .where('__name__', 'in', userMetadata.recent.commonIds)
           .where('status', '==', 'active')
           .limit(10)
       },
@@ -38,7 +39,7 @@ export const viewMyProfile = (user: UserRecord, userMetadata: UserMetadata): Scr
         // Proposals card
         name: 'Proposals',
         ref: db.collectionGroup('proposals')
-          .where('__name__', 'in', userMetadata.recents.proposalIds)
+          .where('__name__', 'in', userMetadata.recent.proposalIds)
           .where('status', '==', 'active')
           .limit(10)
       },

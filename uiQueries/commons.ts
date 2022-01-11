@@ -43,7 +43,7 @@ export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
           name: 'My Commons',
           ref: db
             .collection("commons")
-            .where("__name__", "in", userMetadata.recents.commonIds)
+            .where("__name__", "in", userMetadata.recent.commonIds)
             .where("status", "==", "active")
             .limit(10)
         }

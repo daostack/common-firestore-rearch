@@ -13,7 +13,7 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
         name: 'All',
         ref: db
           .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recents.proposalIds)
+          .where("__name__", "in", userMetadata.recent.proposalIds)
           .limit(10)
       },
       {
@@ -21,7 +21,7 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
         name: 'Active',
         ref: db
           .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recents.proposalIds)
+          .where("__name__", "in", userMetadata.recent.proposalIds)
           .where("status", "==", "active")
           .limit(10)
       },
@@ -30,7 +30,7 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
         name: 'History',
         ref: db
           .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recents.proposalIds)
+          .where("__name__", "in", userMetadata.recent.proposalIds)
           .where("status", "==", "archive")
           .limit(10)
       }
