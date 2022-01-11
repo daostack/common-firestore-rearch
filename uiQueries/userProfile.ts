@@ -59,7 +59,7 @@ export const listNotifications = (user: UserRecord): ScreenContent => {
           name: "Notifications",
           ref: db
             .collection(`users/${user.uid}/notifications`)
-            .orderBy("created.utc", 'desc'),
+            .orderBy("created.utc", 'desc')
           // Limit in the calling application, capture the last page token
           // and then fetch additional pages for infinite scroll
         },

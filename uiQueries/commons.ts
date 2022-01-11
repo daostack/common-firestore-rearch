@@ -1,19 +1,15 @@
 import { db, DocumentReference } from "firebase"
 import { Common, CommonRule, UserRecord, UserMetadata, ScreenContent } from "types"
 
-// *** TO DO ***
-// Find Firestore types for DocumentSnapshot and Reference to import
-
-// Commons
-export const createCommon = (commonDoc: Common) => {
+export const create = (commonDoc: Common) => {
   return db.collection('commons').add(commonDoc);
 }
 
-export const saveCommon = (commonRef: DocumentReference, commonDoc: Common) => {
+export const save = (commonRef: DocumentReference, commonDoc: Common) => {
   return commonRef.set(commonDoc);
 }
 
-export const listMyCommons = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
+export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
       name: 'My commons',
@@ -31,11 +27,22 @@ export const listMyCommons = (user: UserRecord, userMetadata: UserMetadata): Scr
   }
 }
 
-// Common rules
-export const createCommonRule = (commonId: string, commonRuleDoc: CommonRule) => {
-  return db.collection('commons').add(commonRuleDoc);
+export const listAll = (userId: string): ScreenContent => {
+  return {
+    mainScreen: {
+      name: 'My commons',
+      components: [
+        {
+          name: 'My Commons',
+          ref: db
+            .collection("commons")
+            .where("members.active", "array-contains", userId)
+            .where("status", "==", "active")
+            .limit(10)
+        }
+      ]
+    }
+  }
 }
 
-export const saveCommonRule = (commonRuleRef: DocumentReference, commonRuleDoc: CommonRule) => {
-  return commonRuleRef.set(commonRuleDoc);
-}
+

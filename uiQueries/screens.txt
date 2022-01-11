@@ -1,10 +1,12 @@
 02.05       => userProfile
-04.01       => commons
-04.03       => commons/rules
-04.04       => commons
+04.01.??    => commons.create
+04.02.??    => commons.create
+04.03       => commonsRules.create
+04.04       => commons.create
+04.09.01    => // TODO Where are these values sourced?  Global settings collection?
 08.02       => userDashboard
 08.03.1     => commonsProposals.listMyProposals
-08.03.2     => commons.listMyCommons
+08.03.2     => commons.listRecent
 08.03.3     => commonsMembership.listMyMembership requests
 08.05.00    => userProfile.viewPaymentMethod
 08.05.01    => userProfile.viewPaymentMethod
@@ -25,10 +27,18 @@
 08.06.12    => commonsMembership.saveSubscription
 08.06.13    => commonsMembership.saveSubscription - Success response from 08.06.12
 08.06.??    => commonsMembership.saveSubscription - There's no error screen for 08.06.12
-08.07       => userDashboard
+08.07.1     => userDashboard *** Need to understand how to flag new proposaks rather than just recents
+08.08.06    => userDashboard *** This is to show another user - Which Commons and Proposals to show?
+08.08.07    => userDashboard *** This is to show another user - Which Commons and Proposals to show?
 08.09.1     => userProfile.saveBankAccount - is shown twice.  The second version is to add a bank account with a bank list name.
 Further clarification needed
 08.09.2     => userProfile.saveBankAccount
 08.09.3     => userProfile.viewBankAccount
 08.09.4     => userProfile.saveBankAccount
-14.01       => userProfile.listNotifications
+14.01.01    => commons.listAll // TODO This is supposed to be notifications
+14.01.02    => commons.listAll // TODO This is supposed to be notifications
+14.01.03    => userProfile.listNotifications
+14.01.04    => userProfile.listNotifications
+14.01.05    => userProfile.listNotifications // Add startAfter then the ref of the last document
+14.01.06    => userProfile.listNotifications
+

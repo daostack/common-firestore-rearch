@@ -13,4 +13,5 @@ export interface UserRecord extends BaseRecord {
     code: string;           // The ISO-3166-1 alpha-3 code
     name: string;           // The display name for the country
   }
+  verifiedUser: Boolean     // Is this user verified? SR Not writable by user
 }
