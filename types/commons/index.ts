@@ -7,6 +7,7 @@ export * from './rules';
 export interface Common extends BaseRecord {
 
   _id: string;                // Immutable
+  // these are inherited by base record.
   // name: string             // The Common Name
   // intro: string;           // The Tagline field
   about: string;              // The long text field
@@ -21,6 +22,11 @@ export interface Common extends BaseRecord {
     pending: Members;          // (CF)
     rejected: Members;         // (CF)
   }
+  // permission rules: least privileged.
+  // this means hierarchically Founder -> Moderator;
+  // TODO: review security rules.
+  founderIds: string[] // TODO: mutable, but need restrictions.
+  moderatorIds: string[] // TODO: mutable, but need restrictions.
   financial: {
     type: string;             // oneTime | monthly - Is this immutable (UI)
     balance: number;          // The current balance (CF)
