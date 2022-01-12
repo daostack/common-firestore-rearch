@@ -1,4 +1,4 @@
-import { Currency } from "types";
+import { BaseRecord, Currency } from "types";
 
 export interface UserMetadata {
 
@@ -12,6 +12,8 @@ export interface UserMetadata {
   }
   localCurrency?: Currency  // The user's local currency code
 }
+
+// TODO test
 
 export interface UserPaymentMethod extends BaseRecord {
 
@@ -27,5 +29,4 @@ export interface UserBankAccount extends BaseRecord {
   bankIDNumber?: number,
   sortCode: number;
   accountNumber: number;
-
 }
