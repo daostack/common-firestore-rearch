@@ -22,14 +22,14 @@ export interface Common extends BaseRecord {
     rejected: Members;         // (CF)
   }
   financial: {
-    type: string;             // oneTime | monthly - Is this mmmutable (UI)
+    type: string;             // oneTime | monthly - Is this immutable (UI)
     balance: number;          // The current balance (CF)
     totalRaised: number;      // Total raised (CF)
     currency: Currency;       // The currency for the Common
     subscriptions: number;    // Number of subscriptions
     minimums: {
-      oneTime: number;        // TODO  - Is this mmmutable (UI)
-      monthly: number;        // TODO  - Is this mmmutable (UI)
+      oneTime: number;        // TODO:  - Is this immutable (UI)
+      monthly: number;        // TODO:  - Is this immutable (UI)
     }
   }
   fundingProposals: {

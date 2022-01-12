@@ -38,11 +38,6 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
   }
 }
 
-export const listProposals = () => {
-  // AMOS - Is this required on its own?  Currently in a tab in commons.view
-  // TO + ensure that showHidden is included
-}
-
 export const addReport = () => {
-  // TODO
+  // TODO:
 }

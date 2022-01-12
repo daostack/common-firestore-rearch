@@ -51,6 +51,6 @@ export interface Currency {
   symbol: string; // The symbol to display £ | $ | € etc.
 }
 
-export interface Transaction { // TODO
+export interface Transaction { // TODO:
   amount: number;
 }

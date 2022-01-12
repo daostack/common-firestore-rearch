@@ -10,8 +10,8 @@ export const save = (commonRef: DocumentReference, commonDoc: Common) => {
 }
 
 export const view = (commonId: string): ScreenContent => {
-  // TODO Add showHidden for Proposals - AMOS include hidden commons and discussions?
-  // TODO Add showHidden in the user dashboard proposals for own proposals
+  // TODO: Add showHidden for Proposals - AMOS include hidden commons and discussions?
+  // TODO: Add showHidden in the user dashboard proposals for own proposals
   const commonRef = db.doc(`commons/${commonId}`);
   return {
     mainScreen: {

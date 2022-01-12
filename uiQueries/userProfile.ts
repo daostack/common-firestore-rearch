@@ -38,7 +38,7 @@ export const viewPaymentMethod = (user: UserRecord): ScreenContent => {
         ref: db.doc(`users/${user.uid}/private/paymentMethod`),
         // This resource may also contain a tag of 'paymentFailed'
       },
-      // TODO Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
+      // TODO: Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
       {
         name: "Monthly contributions",
         ref: db
