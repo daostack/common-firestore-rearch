@@ -8,6 +8,7 @@ export interface BaseRecord {
   intro?: string; // An introduction
   imageUrl?: string; // The URL of the  image
   status: string; // enum: [ 'Active', 'Inactive', 'Deleted' ]
+  notes?: string;
   tags?: string[]; // Tags for a document
   created: DocumentDateTime;
   updated: DocumentDateTime;
@@ -48,4 +49,8 @@ export interface Currency {
   code: string; // The 3 character currency code
   name: string; // The currency display name
   symbol: string; // The symbol to display £ | $ | € etc.
+}
+
+export interface Transaction { // TODO
+  amount: number;
 }

@@ -17,31 +17,31 @@
 04.09.04    => TODO Integrate with PSP and save card details to user/{uid}/private/paymentMethod
 04.10.01    => As 04.09.01
 04.10.01    => As 04.09.02
-04.10.03    => userProfile.viewPaymentMethod
-04.10.04    => userProfile.viewPaymentMethod
+04.10.03    => userProfile.viewPaymentMethod (TODO view subscriptions?)
+04.10.04    => userProfile.viewPaymentMethod (TODO view subscriptions?)
 08.02       => userDashboard
 08.03.1     => commonsProposals.listMyProposals
 08.03.2     => commons.listRecent
 08.03.3     => commonsMembership.listMyMembership requests
-08.05.00    => userProfile.viewPaymentMethod
-08.05.01    => userProfile.viewPaymentMethod
-08.05.02    => userProfile.viewPaymentMethod
-08.05.03    => userProfile.viewPaymentMethod
+08.05.00    => userProfile.viewPaymentMethod (TODO view subscriptions?)
+08.05.01    => userProfile.viewPaymentMethod (TODO view subscriptions?)
+08.05.02    => userProfile.viewPaymentMethod (TODO view subscriptions?)
+08.05.03    => userProfile.viewPaymentMethod (TODO view subscriptions?)
 08.06.1     => userDashboard
 08.06.02    => Subscription - Status active
-08.06.03.01 => commonsMembership.saveSubscription
+08.06.03.01 => commonsMembership.saveSubscription (TODO Change to userMembership)
 08.06.03.02 => commonsMembership.requestToJoin (CF)
-08.06.03.03 => commonsMembership.viewSubscription
-08.06.03.04 => commonsMembership.viewSubscription- The document contains a `tag` 'paymentFailed'
-08.06.04    => commonsMembership.viewSubscription- Trigger onCall => Request to join common
-08.06.07    => commonsMembership.deleteSubscription- Cancel payment - Set `cancelDate` and set a Cloud Task (with a Cloud Function)
-08.06.08    => commonsMembership.deleteSubscription - Awaiting response from 08.06.07
-08.06.09    => commonsMembership.deleteSubscription - Error response from 08.06.07
-08.06.10    => commonsMembership.deleteSubscription - Success response from 08.06.07
-08.06.11    => commonsMembership.viewSubscription - *** Amos *** Where are these values defined? In the common?
-08.06.12    => commonsMembership.saveSubscription
-08.06.13    => commonsMembership.saveSubscription - Success response from 08.06.12
-08.06.??    => commonsMembership.saveSubscription - // TODO - There's no error screen for 08.06.12
+08.06.03.03 => commonsMembership.viewSubscription (TODO Change to userMembership)
+08.06.03.04 => commonsMembership.viewSubscription- The document contains a `tag` 'paymentFailed' (TODO Change to userMembership)
+08.06.04    => commonsMembership.viewSubscription- Trigger onCall => Request to join common (TODO Change to userMembership)
+08.06.07    => commonsMembership.deleteSubscription- Cancel payment - Set `cancelDate` and set a Cloud Task (with a Cloud Function) (TODO Change to userMembership)
+08.06.08    => commonsMembership.deleteSubscription - Awaiting response from 08.06.07 (TODO Change to userMembership)
+08.06.09    => commonsMembership.deleteSubscription - Error response from 08.06.07 (TODO Change to userMembership)
+08.06.10    => commonsMembership.deleteSubscription - Success response from 08.06.07 (TODO Change to userMembership)
+08.06.11    => commonsMembership.viewSubscription - *** Amos *** Where are these values defined? In the common? (TODO Change to userMembership)
+08.06.12    => commonsMembership.saveSubscription (TODO Change to userMembership)
+08.06.13    => commonsMembership.saveSubscription - Success response from 08.06.12 (TODO Change to userMembership)
+08.06.??    => commonsMembership.saveSubscription - // TODO - There's no error screen for 08.06.12 (TODO Change to userMembership)
 08.07.1     => userDashboard *** Need to understand how to flag new proposals rather than just recents
 08.08.06    => userDashboard *** Show all Commons, Proposals & Discussions TODO Add discussion and sortBy created DESC
 08.08.07    => userDashboard *** Show all Commons, Proposals & Discussions TODO Add discussion and sortBy created DESC
@@ -59,8 +59,36 @@ Further clarification needed
 10.02.5     => // As 10.02.1 if commonDoc.financial.currency.code != userMetadataDoc.localCurrency.code
 10.02.5     => commons.view // TODO Duplicate screen number used
 10.02.6     => // No Firebase interaction required
-14.01.01    => commons.listAll // TODO This is supposed to be notifications
-14.01.02    => commons.listAll // TODO This is supposed to be notifications
+10.02.7     => commons.list && commons.save
+10.02.7     => commonsRules.list && commonsRules.save
+10.02.8     => commons.remove
+10.02.9     => Promise resolved from commons.remove
+10.02.10    => // No Firebase interaction required
+10.02.11    => // No Firebase interaction required
+10.02.12    => userProfile.viewPaymentMethod && commons.addTransaction && commons.viewTransaction with .onSNapshot
+10.02.13    => commons.viewTransaction // Check status = 'complete'
+10.02.14    => commons.viewTransaction // Check status = 'pending'
+10.02.15    => commons.viewTransaction // Check status = 'failed'
+10.02.16    => // No Firebase interaction required
+10.02.17    => userProfile.saveBillingDetails (TODO)
+10.02.18    => // Payment processing
+10.03.01.01 => commonsProposals.list ?showHidden = true
+10.03.01.02 => commonsProposals.listReports // AMOS - WHat if there is more than one report?
+10.03.01.03 => commonsProposals.listReports // AMOS - WHat if there is more than one report?
+10.03.01.04 => // No Firebase interaction required
+10.03.01.05 => commonsProposals.addReport
+10.03.01.06 => commonsProposals.addReport
+10.03.01.07 => commonsProposals.addReport
+10.03.01.08 => commonsProposals.addReport
+10.03.01.09 => Promise resolved from 10.03.01.08
+10.03.1     => commons.view
+10.03.4     => // AMOS Reading list?
+10.03.5     => commons.view
+10.03.6     => commons.view
+10.03.7     => commons.view && // TODO if(members arrays do not contain uid) {onCall to join common}
+10.03.8     => // No Firebase interaction required
+12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
+12.7        => commons.view Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
 14.01.04    => userProfile.listNotifications
 14.01.05    => userProfile.listNotifications // Add startAfter then the ref of the last document

@@ -1,5 +1,5 @@
 import { db, DocumentReference } from "firebase"
-import { Common, CommonRule, UserRecord, UserMetadata, ScreenContent } from "types"
+import { Common, UserMetadata, ScreenContent, Transaction } from "types"
 
 export const create = (commonDoc: Common) => {
   return db.collection('commons').add(commonDoc);
@@ -10,6 +10,8 @@ export const save = (commonRef: DocumentReference, commonDoc: Common) => {
 }
 
 export const view = (commonId: string): ScreenContent => {
+  // TODO Add showHidden for Proposals - AMOS include hidden commons and discussions?
+  // TODO Add showHidden in the user dashboard proposals for own proposals
   const commonRef = db.doc(`commons/${commonId}`);
   return {
     mainScreen: {
@@ -17,8 +19,7 @@ export const view = (commonId: string): ScreenContent => {
       components: [
         {
           name: 'common.name',
-          ref: commonRef
-            
+          ref: commonRef           
         }
       ]
     },
@@ -70,4 +71,10 @@ export const listAll = (userId: string): ScreenContent => {
   }
 }
 
+export const remove = (commonRef: DocumentReference) => {
+  return commonRef.delete(commonRef);
+}
 
+export const addTransaction = (commonRef: DocumentReference, transactionDoc: Transaction) => {
+  return commonRef.collection('transactions').add(transactionDoc);
+}
