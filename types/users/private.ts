@@ -13,6 +13,8 @@ export interface UserMetadata {
   localCurrency?: Currency  // The user's local currency code
 }
 
+// TODO test
+
 export interface UserPaymentMethod extends BaseRecord {
 
   cardholderName: string;   // The cardholder's name
@@ -27,5 +29,4 @@ export interface UserBankAccount extends BaseRecord {
   bankIDNumber?: number,
   sortCode: number;
   accountNumber: number;
-
 }
