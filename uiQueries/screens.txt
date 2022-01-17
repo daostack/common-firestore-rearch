@@ -81,6 +81,14 @@ Further clarification needed
 10.03.01.07 => commonsProposals.addReport
 10.03.01.08 => commonsProposals.addReport
 10.03.01.09 => Promise resolved from 10.03.01.08
+10.03.02.01 => commonsProposals.addModeratorReport && commonsProposals.save TODO: (status = hidden if permitted in Security Rules)
+10.03.02.02 => As 10.03.02.01
+10.03.02.03 => As 10.03.02.01
+10.03.02.04 => As 10.03.02.01
+10.03.02.05 => As 10.03.02.01
+10.03.02.06 => Success returned from 10.03.02.01
+10.03.02.07 => TODO: Amos - How are these Proposals filtered and sorted? => GitHub issue #7
+10.03.02.08 => Show: commonsProposals.save (Set status to active) && Report: commonsProposals.addModeratorReport
 10.03.1     => commons.view
 10.03.4     => // AMOS Reading list?
 10.03.5     => commons.view

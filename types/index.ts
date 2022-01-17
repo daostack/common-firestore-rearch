@@ -54,3 +54,8 @@ export interface Currency {
 export interface Transaction { // TODO:
   amount: number;
 }
+
+export interface Moderation {
+  // name: Problem
+  // notes: Moderator note
+}

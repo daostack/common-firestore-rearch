@@ -17,3 +17,8 @@ export interface FundingProposal {
 export interface MemberProposal {
 
 }
+
+export interface Report {
+  // Write selection to the name field
+  // Write the note to the notes field
+}

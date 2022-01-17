@@ -13,7 +13,7 @@ export interface UserMetadata {
   localCurrency?: Currency  // The user's local currency code
 }
 
-// TODO: test
+// TODO test
 
 export interface UserPaymentMethod extends BaseRecord {
 
