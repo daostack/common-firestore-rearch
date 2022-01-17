@@ -89,12 +89,14 @@ Further clarification needed
 10.03.02.06 => Success returned from 10.03.02.01
 10.03.02.07 => TODO: Amos - How are these Proposals filtered and sorted? => GitHub issue #7
 10.03.02.08 => Show: commonsProposals.save (Set status to active) && Report: commonsProposals.addModeratorReport
+10.03.03.01 => // No Firebase interaction required
 10.03.1     => commons.view
 10.03.4     => // AMOS Reading list?
 10.03.5     => commons.view
 10.03.6     => commons.view
 10.03.7     => commons.view && // TODO: if(members arrays do not contain uid) {onCall to join common}
 10.03.8     => // No Firebase interaction required
+10.05.1     => 
 12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
