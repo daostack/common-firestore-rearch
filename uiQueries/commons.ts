@@ -15,10 +15,10 @@ export const view = (commonId: string): ScreenContent => {
   const commonRef = db.doc(`commons/${commonId}`);
   return {
     mainScreen: {
-      name: 'common.name',
+      name: 'commonDoc.name',
       components: [
         {
-          name: 'common.name',
+          name: 'commonDoc.name',
           ref: commonRef           
         }
       ]
@@ -27,10 +27,17 @@ export const view = (commonId: string): ScreenContent => {
       {
         name: 'Discussions',
         ref: commonRef.collection('discussions')
+        .where('status', '==', 'active')
       },
       {
         name: 'Proposals',
         ref: commonRef.collection('proposals')
+          .where('status', '==', 'active')
+      },
+      {
+        name: 'History',
+        ref: commonRef.collection('proposals')
+          .where('status', '!=', 'active')
       }
     ]
   }}

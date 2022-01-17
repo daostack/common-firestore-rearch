@@ -96,7 +96,9 @@ Further clarification needed
 10.03.6     => commons.view
 10.03.7     => commons.view && // TODO: if(members arrays do not contain uid) {onCall to join common}
 10.03.8     => // No Firebase interaction required
-10.05.1     => 
+10.05.1     => commons.view
+10.05.2     => commons.view
+10.05.3     => commons.view && user.uid not in commonDoc.members.active
 12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
