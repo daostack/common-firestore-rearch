@@ -1,5 +1,5 @@
 import {Timestamp} from 'firebase';
-import { BaseRecord, Currency } from '../index';
+import { BaseRecord, Currency, UserProfile } from '../index';
 
 export * from './proposals';
 export * from './rules';
@@ -52,6 +52,7 @@ interface Members {
   count: number;              // The number of members
   ids: string[];              // The IDs of the members
 }
+
 
 interface Totals {
   count: number;
