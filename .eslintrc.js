@@ -1,5 +1,5 @@
 module.exports = {
-  root: false,
+  root: true,
   env: {
     es6: true,
     node: true,
@@ -24,7 +24,7 @@ module.exports = {
     "import",
   ],
   rules: {
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "import/no-unresolved": 0,
   },
 };
