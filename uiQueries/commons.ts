@@ -1,13 +1,14 @@
-import { db, DocumentReference } from "firebase"
-import { Common, UserMetadata, ScreenContent, Transaction } from "types"
+import { db, DocumentReference } from 'firebase';
+import { Common, UserMetadata, ScreenContent, Transaction } from 'types';
 
-export const create = (commonDoc: Common) => { // TODO: onCreate add user as an accepted proposal to have a function add to members and history Set intro: 'Created this Common'
+export const create = (commonDoc: Common) => {
+  // TODO: onCreate add user as an accepted proposal to have a function add to members and history Set intro: 'Created this Common'
   return db.collection('commons').add(commonDoc);
-}
+};
 
 export const save = (commonRef: DocumentReference, commonDoc: Common) => {
   return commonRef.set(commonDoc);
-}
+};
 
 export const view = (commonId: string): ScreenContent => {
   // TODO: Add showHidden for Proposals - AMOS include hidden commons and discussions?
@@ -19,28 +20,28 @@ export const view = (commonId: string): ScreenContent => {
       components: [
         {
           name: 'commonDoc.name',
-          ref: commonRef           
-        }
-      ]
+          ref: commonRef,
+        },
+      ],
     },
     tabs: [
       {
         name: 'Discussions',
-        ref: commonRef.collection('discussions')
-        .where('status', '==', 'active')
+        ref: commonRef
+          .collection('discussions')
+          .where('status', '==', 'active'),
       },
       {
         name: 'Proposals',
-        ref: commonRef.collection('proposals')
-          .where('status', '==', 'active')
+        ref: commonRef.collection('proposals').where('status', '==', 'active'),
       },
       {
         name: 'History',
-        ref: commonRef.collection('proposals')
-          .where('status', '!=', 'active')
-      }
-    ]
-  }}
+        ref: commonRef.collection('proposals').where('status', '!=', 'active'),
+      },
+    ],
+  };
+};
 
 export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
   return {
@@ -50,15 +51,15 @@ export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
         {
           name: 'My Commons',
           ref: db
-            .collection("commons")
-            .where("__name__", "in", userMetadata.recent.commonIds)
-            .where("status", "==", "active")
-            .limit(10)
-        }
-      ]
-    }
-  }
-}
+            .collection('commons')
+            .where('__name__', 'in', userMetadata.recent.commonIds)
+            .where('status', '==', 'active')
+            .limit(10),
+        },
+      ],
+    },
+  };
+};
 
 export const listAll = (userId: string): ScreenContent => {
   return {
@@ -68,20 +69,23 @@ export const listAll = (userId: string): ScreenContent => {
         {
           name: 'My Commons',
           ref: db
-            .collection("commons")
-            .where("members.active", "array-contains", userId)
-            .where("status", "==", "active")
-            .limit(10)
-        }
-      ]
-    }
-  }
-}
+            .collection('commons')
+            .where('members.active', 'array-contains', userId)
+            .where('status', '==', 'active')
+            .limit(10),
+        },
+      ],
+    },
+  };
+};
 
 export const remove = (commonRef: DocumentReference) => {
-  return commonRef.delete(commonRef);
-}
+  return commonRef.delete();
+};
 
-export const addTransaction = (commonRef: DocumentReference, transactionDoc: Transaction) => {
+export const addTransaction = (
+  commonRef: DocumentReference,
+  transactionDoc: Transaction
+) => {
   return commonRef.collection('transactions').add(transactionDoc);
-}
+};

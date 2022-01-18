@@ -1,4 +1,4 @@
-import { db } from "firebase";
+import { db } from 'firebase';
 import { UserRecord, UserMetadata, ScreenContent } from 'types'
 
 // 08.01 Account registered user empty states

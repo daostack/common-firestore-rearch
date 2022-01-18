@@ -1,5 +1,5 @@
-import { db, DocumentReference } from "firebase"
-import { UserMetadata, UserRecord, ScreenContent, Moderation } from "../types"
+import { db, DocumentReference } from 'firebase'
+import { UserMetadata, UserRecord, ScreenContent, Moderation } from '../types'
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
 
@@ -12,26 +12,26 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
         // Tab 1 - All
         name: 'All',
         ref: db
-          .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recent.proposalIds)
+          .collectionGroup('proposals')
+          .where('__name__', 'in', userMetadata.recent.proposalIds)
           .limit(10)
       },
       {
         // Tab 2 - Active
         name: 'Active',
         ref: db
-          .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recent.proposalIds)
-          .where("status", "==", "active")
+          .collectionGroup('proposals')
+          .where('__name__', 'in', userMetadata.recent.proposalIds)
+          .where('status', '==', 'active')
           .limit(10)
       },
       {
         // Tab 3 - History
         name: 'History',
         ref: db
-          .collectionGroup("proposals")
-          .where("__name__", "in", userMetadata.recent.proposalIds)
-          .where("status", "==", "archive")
+          .collectionGroup('proposals')
+          .where('__name__', 'in', userMetadata.recent.proposalIds)
+          .where('status', '==', 'archive')
           .limit(10)
       }
     ]

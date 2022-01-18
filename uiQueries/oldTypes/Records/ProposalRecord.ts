@@ -116,8 +116,7 @@ export interface BaseProposalDescriptionRecord {
   links: ProposalLink[];
 }
 
-export interface JoinRequestDescriptionRecord
-  extends BaseProposalDescriptionRecord {}
+export type JoinRequestDescriptionRecord = BaseProposalDescriptionRecord
 
 export interface FundingRequestDescriptionRecord {
   /**

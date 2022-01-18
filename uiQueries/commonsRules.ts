@@ -1,5 +1,5 @@
-import { db, DocumentReference } from "firebase"
-import { CommonRule, ScreenContent } from "types"
+import { DocumentReference } from 'firebase'
+import { CommonRule, ScreenContent } from 'types'
 
 // Common rules
 export const create = (commonRef: DocumentReference, commonRuleDoc: CommonRule) => {

@@ -1,7 +1,9 @@
-import { db, DocumentReference } from "firebase"
-import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from "../types"
+import { db, DocumentReference } from 'firebase'
+import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from '../types'
 
-export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMetadata):ScreenContent => {
+// TODO: resolve unused _userMetadata
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const listMyMembershipRequests = (user: UserRecord, _userMetadata: UserMetadata):ScreenContent => {
 
   return {
     mainScreen: {
@@ -12,38 +14,38 @@ export const listMyMembershipRequests = (user: UserRecord, userMetadata: UserMet
         // Tab 1 - Pending
         name: 'Pending',
         ref: db
-          .collection("commons")
-          .where("members.pending.ids", "array-contains", user.uid)
-          .where("status", "==", "active")
+          .collection('commons')
+          .where('members.pending.ids', 'array-contains', user.uid)
+          .where('status', '==', 'active')
           .limit(10)
       },
       {
         // Tab 2 - Approved
         name: 'Approved',
         ref: db
-          .collection("commons")
-          .where("members.active.ids", "array-contains", user.uid)
-          .where("status", "==", "active")
+          .collection('commons')
+          .where('members.active.ids', 'array-contains', user.uid)
+          .where('status', '==', 'active')
           .limit(10)
       },
       {
         // Tab 3 - Rejected
         name: 'Rejected',
         ref: db
-          .collection("members.rejected.ids")
-          .where("rejectedMembers", "array-contains", user.uid)
-          .where("status", "==", "active")
+          .collection('members.rejected.ids')
+          .where('rejectedMembers', 'array-contains', user.uid)
+          .where('status', '==', 'active')
           .limit(10)
       }
     ]
   }
 }
 
-export const saveSunscription = (subscriptionRef: DocumentReference, subscriptionDoc: CommonSubscription) => {
+export const saveSubscription = (subscriptionRef: DocumentReference, subscriptionDoc: CommonSubscription) => {
   return subscriptionRef.set(subscriptionDoc);
 }
 
-export const deleteSunscription = (subscriptionRef: DocumentReference) => {
+export const deleteSubscription = (subscriptionRef: DocumentReference) => {
   return subscriptionRef.delete();
 }
 
