@@ -1,7 +1,7 @@
 import { db, DocumentReference } from "firebase"
 import { Common, UserMetadata, ScreenContent, Transaction } from "types"
 
-export const create = (commonDoc: Common) => { // TODO: onCreate add user as an accepted proposal to have a function add to members and history
+export const create = (commonDoc: Common) => { // TODO: onCreate add user as an accepted proposal to have a function add to members and history Set intro: 'Created this Common'
   return db.collection('commons').add(commonDoc);
 }
 
