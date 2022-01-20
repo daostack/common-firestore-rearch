@@ -102,6 +102,9 @@ Further clarification needed
 10.07.1     => commonsMembers.list
 10.07.2     => commonsMembers.list
 10.07.3     => commonsMembers.list
+10.09.0     => commons.view
+10.09.1     => commons.view
+10.09.4     => commons.view
 12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications

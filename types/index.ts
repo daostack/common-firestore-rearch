@@ -14,11 +14,22 @@ export interface BaseRecord {
   updated: DocumentDateTime;
 }
 
+/*
+The page for showing Proposal history in the Members section will require the following fields:
+* UserProfile (Name, ProfilePic, etc.)
+* Member of x commons
+* Number of votes accepted, rejected
+* Number of discussions
+* Fixed / monthly subscription
+* The profile pic of a user with a tick (clarification needed)
+*/
+
 interface Change {
   object: 'proposal', // expand this type
   previous: any,
   current: any
 }
+
 export interface Event {
   utc: Timestamp; // The time that the update was made
   eventType: 'create' | 'update' | 'delete' | 'orch'
