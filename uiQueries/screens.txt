@@ -72,16 +72,16 @@ Further clarification needed
 10.02.16    => // No Firebase interaction required
 10.02.17    => userProfile.saveBillingDetails (TODO:)
 10.02.18    => // Payment processing
-10.03.01.01 => commonsProposals.list ?showHidden = true
-10.03.01.02 => commonsProposals.listReports // AMOS - WHat if there is more than one report?
-10.03.01.03 => commonsProposals.listReports // AMOS - WHat if there is more than one report?
+10.03.01.01 => moderation.list ?showHidden = true
+10.03.01.02 => moderation.list // AMOS - WHat if there is more than one report?
+10.03.01.03 => moderation.list // AMOS - WHat if there is more than one report?
 10.03.01.04 => // No Firebase interaction required
-10.03.01.05 => commonsProposals.addReport
-10.03.01.06 => commonsProposals.addReport
-10.03.01.07 => commonsProposals.addReport
-10.03.01.08 => commonsProposals.addReport
+10.03.01.05 => commonsProposals.add // TODO: Wrap Proposal and Discussion moderation into a single component
+10.03.01.06 => moderation.add
+10.03.01.07 => moderation.add
+10.03.01.08 => moderation.add
 10.03.01.09 => Promise resolved from 10.03.01.08
-10.03.02.01 => commonsProposals.addModeratorReport && commonsProposals.save TODO: (status = hidden if permitted in Security Rules)
+10.03.02.01 => moderation.add && commonsProposals.save TODO: (status = hidden if permitted in Security Rules)
 10.03.02.02 => As 10.03.02.01
 10.03.02.03 => As 10.03.02.01
 10.03.02.04 => As 10.03.02.01
@@ -103,8 +103,28 @@ Further clarification needed
 10.07.2     => commonsMembers.list
 10.07.3     => commonsMembers.list
 10.09.0     => commons.view
+10.09.01.01 => commons.view (showHidden: true)
+10.09.01.02 => commons.view (showHidden: true)
+10.09.01.03 => commons.view (showHidden: true)
+10.09.01.04 => moderation.add
+10.09.01.05 => moderation.add
+10.09.01.06 => moderation.add
+10.09.01.07 => moderation.add
+10.09.01.08 => moderation.add
+10.09.01.09 => moderation.add
+10.09.01.01 => moderation.add
+10.09.02.03 => moderation.add // include setHidden: true
+10.09.02.04 => moderation.add // include setHidden: true
+10.09.02.04 => moderation.add // include setHidden: true
+10.09.02.05 => moderation.add // include setHidden: true
+10.09.02.06 => moderation.add // Promise resolves
+10.09.02.07 => commons.view (showHidden: true)
+10.09.02.08 => moderation.show                // TODO:
 10.09.1     => commons.view
+10.09.3     => commons.view
 10.09.4     => commons.view
+10.10.2     => commons.view // Possible numbered incorrectly and should be 10.09.2
+
 12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications

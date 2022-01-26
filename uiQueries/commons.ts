@@ -1,19 +1,24 @@
 import { db, DocumentReference } from 'firebase';
 import { Common, UserMetadata, ScreenContent, Transaction } from 'types';
 
-export const create = (commonDoc: Common) => {
+export const create = (docData: Common) => {
   // TODO: onCreate add user as an accepted proposal to have a function add to members and history Set intro: 'Created this Common'
-  return db.collection('commons').add(commonDoc);
+  return db.collection('commons').add(docData);
 };
 
-export const save = (commonRef: DocumentReference, commonDoc: Common) => {
-  return commonRef.set(commonDoc);
+export const save = (commonRef: DocumentReference, docData: Common) => {
+  return commonRef.set(docData);
 };
 
-export const view = (commonId: string): ScreenContent => {
+export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
   // TODO: Add showHidden for Proposals - AMOS include hidden commons and discussions?
   // TODO: Add showHidden in the user dashboard proposals for own proposals
   const commonRef = db.doc(`commons/${commonId}`);
+  
+  // Show only active or active and hidden
+  let showDiscussions = ['active'];
+  if(showHidden) {showDiscussions.push('hidden');}
+
   return {
     mainScreen: {
       name: 'commonDoc.name',
@@ -29,7 +34,7 @@ export const view = (commonId: string): ScreenContent => {
         name: 'Discussions',
         ref: commonRef
           .collection('discussions')
-          .where('status', '==', 'active'),
+          .where('status', 'in', showDiscussions),
       },
       {
         name: 'Proposals',
@@ -85,7 +90,7 @@ export const remove = (commonRef: DocumentReference) => {
 
 export const addTransaction = (
   commonRef: DocumentReference,
-  transactionDoc: Transaction
+  docData: Transaction
 ) => {
-  return commonRef.collection('transactions').add(transactionDoc);
+  return commonRef.collection('transactions').add(docData);
 };

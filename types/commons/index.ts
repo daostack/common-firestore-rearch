@@ -1,6 +1,7 @@
-import {Timestamp} from 'firebase';
+import { Timestamp } from 'firebase';
 import { BaseRecord, Currency, UserProfile } from '../index';
 
+export * from './discussions';
 export * from './proposals';
 export * from './rules';
 

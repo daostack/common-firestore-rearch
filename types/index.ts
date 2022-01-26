@@ -85,7 +85,8 @@ export interface Transaction { // TODO:
   amount: number;
 }
 
-export interface Moderation {
+export interface Moderation { // TODO:
   // name: Problem
   // notes: Moderator note
+  setHidden: boolean;
 }

@@ -2,22 +2,22 @@ import { DocumentReference } from 'firebase'
 import { CommonRule, ScreenContent } from 'types'
 
 // Common rules
-export const create = (commonRef: DocumentReference, commonRuleDoc: CommonRule) => {
-  return commonRef.collection('commonRules').add(commonRuleDoc);
+export const create = (docRef: DocumentReference, docData: CommonRule) => {
+  return docRef.collection('commonRules').add(docData);
 }
 
-export const save = (commonRuleRef: DocumentReference, commonRuleDoc: CommonRule) => {
-  return commonRuleRef.set(commonRuleDoc);
+export const save = (docRef: DocumentReference, docData: CommonRule) => {
+  return docRef.set(docData);
 }
 
-export const list = (commonRef: DocumentReference): ScreenContent => {
+export const list = (docRef: DocumentReference): ScreenContent => {
   return {
     mainScreen: {
       name: 'Edit rules',
       components: [
         {
           name: 'Edit rules',
-          ref: commonRef.collection('commonRules')
+          ref: docRef.collection('commonRules')
         }
       ]
     }

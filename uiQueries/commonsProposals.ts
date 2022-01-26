@@ -37,8 +37,3 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
     ]
   }
 }
-
-export const addModeratorReport = (proposalRef: DocumentReference, reportDoc: Moderation) => {
-  // TODO: Write here updates the parent with status = hidden / reported / etc.
-  return proposalRef.collection('moderatorReports').add(reportDoc);
-}
