@@ -1,21 +1,12 @@
-import {BaseRecord} from './BaseRecord';
-import {ContributionType, ICommonLink} from './CommonRecord';
-import {VoteOutcome} from './VoteRecord';
-import {ModerationRecord} from './ModerationRecord';
+import { BaseRecord } from './BaseRecord';
+import { ContributionType, ICommonLink } from './CommonRecord';
+import { VoteOutcome } from './VoteRecord';
+import { ModerationRecord } from './ModerationRecord';
 
-export type FundingRequestState =
-  | 'countdown'
-  | 'passed'
-  | 'failed'
-  | 'passedInsufficientBalance';
+export type FundingRequestState = 'countdown' | 'passed' | 'failed' | 'passedInsufficientBalance';
 export type RequestToJoinState = 'countdown' | 'passed' | 'failed';
 
-export type ProposalPaymentState =
-  | 'notAttempted'
-  | 'pending'
-  | 'failed'
-  | 'confirmed'
-  | 'notRelevant';
+export type ProposalPaymentState = 'notAttempted' | 'pending' | 'failed' | 'confirmed' | 'notRelevant';
 
 /**
  * The base proposal fields, that will be available
@@ -116,7 +107,7 @@ export interface BaseProposalDescriptionRecord {
   links: ProposalLink[];
 }
 
-export type JoinRequestDescriptionRecord = BaseProposalDescriptionRecord
+export type JoinRequestDescriptionRecord = BaseProposalDescriptionRecord;
 
 export interface FundingRequestDescriptionRecord {
   /**
@@ -135,9 +126,7 @@ export interface FundingRequestDescriptionRecord {
   files: ProposalFile[];
 }
 
-export type TypeFundingRequestDescription =
-  | BaseProposalDescriptionRecord
-  | FundingRequestDescriptionRecord;
+export type TypeFundingRequestDescription = BaseProposalDescriptionRecord | FundingRequestDescriptionRecord;
 
 export interface ProposalLink {
   /**
@@ -282,7 +271,7 @@ export interface UIProposalImage {
 // Arc.js related string constants
 export enum PROPOSAL_TYPE {
   Join = 'join',
-  FundingRequest = 'fundingRequest',
+  FundingRequest = 'fundingRequest'
 }
 
 export enum PROPOSAL_STAGE {
@@ -291,7 +280,7 @@ export enum PROPOSAL_STAGE {
   countdown = 'countdown',
   passed = 'passed',
   failed = 'failed',
-  passedInsufficientBalance = 'passedInsufficientBalance',
+  passedInsufficientBalance = 'passedInsufficientBalance'
 }
 
 export const PROPOSAL_STAGES_ACTIVE = [PROPOSAL_STAGE.countdown];
@@ -299,25 +288,18 @@ export const PROPOSAL_STAGES_ACTIVE = [PROPOSAL_STAGE.countdown];
 export const PROPOSAL_STAGES_HISTORY = [
   PROPOSAL_STAGE.passed,
   PROPOSAL_STAGE.failed,
-  PROPOSAL_STAGE.passedInsufficientBalance,
+  PROPOSAL_STAGE.passedInsufficientBalance
 ];
 
-export const PROPOSAL_STAGES_ALL = [
-  ...PROPOSAL_STAGES_HISTORY,
-  ...PROPOSAL_STAGES_ACTIVE,
-];
+export const PROPOSAL_STAGES_ALL = [...PROPOSAL_STAGES_HISTORY, ...PROPOSAL_STAGES_ACTIVE];
 
 export const LAUNCHED_STATES = [PROPOSAL_STAGE.passed];
 
 export const COUNTDOWN_STATES = [PROPOSAL_STAGE.failed];
 
-export type ProposalStageFilter =
-  | typeof PROPOSAL_STAGE.Active
-  | typeof PROPOSAL_STAGE.History;
+export type ProposalStageFilter = typeof PROPOSAL_STAGE.Active | typeof PROPOSAL_STAGE.History;
 
-export type ProposalTypeFilter =
-  | typeof PROPOSAL_TYPE.FundingRequest
-  | typeof PROPOSAL_TYPE.Join;
+export type ProposalTypeFilter = typeof PROPOSAL_TYPE.FundingRequest | typeof PROPOSAL_TYPE.Join;
 
 export interface ProposalFilterParams {
   type: ProposalTypeFilter;

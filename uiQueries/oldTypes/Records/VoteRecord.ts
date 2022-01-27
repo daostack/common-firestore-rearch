@@ -1,4 +1,4 @@
-import {BaseRecord} from './BaseRecord';
+import { BaseRecord } from './BaseRecord';
 
 export interface VoteRecord extends BaseRecord {
   /**

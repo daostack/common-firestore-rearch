@@ -1,6 +1,6 @@
-import {BaseRecord} from './BaseRecord';
-import {Timestamp} from 'firebase';
-import {ModerationRecord} from './ModerationRecord';
+import { BaseRecord } from './BaseRecord';
+import { Timestamp } from 'firebase';
+import { ModerationRecord } from './ModerationRecord';
 
 // TODO: implement IBaseEntity when the backend is refactored
 export interface DiscussionMessageRecord extends BaseRecord {

@@ -1,10 +1,9 @@
-import { db, DocumentReference } from 'firebase'
-import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from '../types'
+import { db, DocumentReference } from 'firebase';
+import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from '../types';
 
 // TODO: resolve unused _userMetadata
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const listMyMembershipRequests = (user: UserRecord, _userMetadata: UserMetadata):ScreenContent => {
-
+export const listMyMembershipRequests = (user: UserRecord, _userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
       name: 'Membership requests'
@@ -38,16 +37,16 @@ export const listMyMembershipRequests = (user: UserRecord, _userMetadata: UserMe
           .limit(10)
       }
     ]
-  }
-}
+  };
+};
 
 export const saveSubscription = (subscriptionRef: DocumentReference, subscriptionDoc: CommonSubscription) => {
   return subscriptionRef.set(subscriptionDoc);
-}
+};
 
 export const deleteSubscription = (subscriptionRef: DocumentReference) => {
   return subscriptionRef.delete();
-}
+};
 
 export const viewSubscription = (user: UserRecord, commonId: string, subscriptionId: string): ScreenContent => {
   // More research on Enums required ---- user.status =
@@ -61,5 +60,5 @@ export const viewSubscription = (user: UserRecord, commonId: string, subscriptio
         }
       ]
     }
-  }
-}
+  };
+};

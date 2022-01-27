@@ -1,14 +1,14 @@
-import { DocumentReference } from 'firebase'
-import { CommonRule, ScreenContent } from 'types'
+import { DocumentReference } from 'firebase';
+import { CommonRule, ScreenContent } from 'types';
 
 // Common rules
 export const create = (docRef: DocumentReference, docData: CommonRule) => {
   return docRef.collection('commonRules').add(docData);
-}
+};
 
 export const save = (docRef: DocumentReference, docData: CommonRule) => {
   return docRef.set(docData);
-}
+};
 
 export const list = (docRef: DocumentReference): ScreenContent => {
   return {
@@ -22,7 +22,7 @@ export const list = (docRef: DocumentReference): ScreenContent => {
       ]
     }
   };
-}
+};
 
 export const view = (commonRef: DocumentReference, commonRuleId: string): ScreenContent => {
   return {
@@ -36,4 +36,4 @@ export const view = (commonRef: DocumentReference, commonRuleId: string): Screen
       ]
     }
   };
-}
+};

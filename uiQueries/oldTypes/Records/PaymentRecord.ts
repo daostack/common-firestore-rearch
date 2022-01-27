@@ -1,12 +1,7 @@
-import {BaseRecord} from './BaseRecord';
+import { BaseRecord } from './BaseRecord';
 
 export type PaymentType = 'one-time' | 'subscription';
-export type PaymentStatus =
-  | 'pending'
-  | 'confirmed'
-  | 'paid'
-  | 'failed'
-  | 'notAttempted';
+export type PaymentStatus = 'pending' | 'confirmed' | 'paid' | 'failed' | 'notAttempted';
 export type PaymentMethod = 'card';
 export type PaymentCurrency = 'USD';
 
@@ -147,9 +142,4 @@ export interface SuccessfulPayment extends PaymentRecordBase {
   status: 'paid';
 }
 
-export type PaymentRecord =
-  | PaymentRecordBase
-  | PendingPayment
-  | ConfirmedPayment
-  | SuccessfulPayment
-  | FailedPayment;
+export type PaymentRecord = PaymentRecordBase | PendingPayment | ConfirmedPayment | SuccessfulPayment | FailedPayment;

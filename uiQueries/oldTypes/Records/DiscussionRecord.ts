@@ -1,6 +1,6 @@
-import {BaseRecord} from './BaseRecord';
-import {Timestamp} from 'firebase';
-import {ModerationRecord} from './ModerationRecord';
+import { BaseRecord } from './BaseRecord';
+import { Timestamp } from 'firebase';
+import { ModerationRecord } from './ModerationRecord';
 
 export interface DiscussionRecord extends BaseRecord {
   /**

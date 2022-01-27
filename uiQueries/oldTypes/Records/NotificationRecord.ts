@@ -61,7 +61,7 @@ export enum EventType {
   discussionMessageReported = 'discussionMessageReported',
   proposalReported = 'proposalReported',
   discussionReported = 'discussionReported',
-  membershipRequestReported = 'membershipRequestReported',
+  membershipRequestReported = 'membershipRequestReported'
 }
 
 export const EventTitleState = {
@@ -88,7 +88,7 @@ export const EventTitleState = {
   discussionMessageReported: 'Comment Reported',
   proposalReported: 'Proposal Reported',
   discussionReported: 'Post Reported',
-  membershipRequestReported: 'Membership Request Reported',
+  membershipRequestReported: 'Membership Request Reported'
 };
 
 // NOTE: EventTypesOnNotificationList length is 10 and it is used in a firebase query with 'in' operator.
@@ -103,11 +103,11 @@ export const EventTypesOnNotificationList = [
   EventType.requestToJoinCreated,
   EventType.requestToJoinRejected,
   EventType.discussionCreated,
-  EventType.commonMemberAdded,
+  EventType.commonMemberAdded
 ];
 
 export const EventTypesOnNotificationList1 = [
   EventType.discussionMessageReported,
   EventType.proposalReported,
-  EventType.discussionReported,
+  EventType.discussionReported
 ];

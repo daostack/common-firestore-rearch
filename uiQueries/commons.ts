@@ -14,10 +14,12 @@ export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
   // TODO: Add showHidden for Proposals - AMOS include hidden commons and discussions?
   // TODO: Add showHidden in the user dashboard proposals for own proposals
   const commonRef = db.doc(`commons/${commonId}`);
-  
+
   // Show only active or active and hidden
-  let showDiscussions = ['active'];
-  if(showHidden) {showDiscussions.push('hidden');}
+  const showDiscussions = ['active'];
+  if (showHidden) {
+    showDiscussions.push('hidden');
+  }
 
   return {
     mainScreen: {
@@ -25,31 +27,27 @@ export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
       components: [
         {
           name: 'commonDoc.name',
-          ref: commonRef,
-        },
-      ],
+          ref: commonRef
+        }
+      ]
     },
     tabs: [
       {
         name: 'Discussions',
-        ref: commonRef
-          .collection('discussions')
-          .where('status', 'in', showDiscussions)
-          .orderBy('_updated.utc', 'desc')
+        ref: commonRef.collection('discussions').where('status', 'in', showDiscussions).orderBy('_updated.utc', 'desc')
       },
       {
         name: 'Proposals',
-        ref: commonRef.collection('proposals')
-          .where('status', '==', 'active')
-          .orderBy('_updated.utc', 'desc')
+        ref: commonRef.collection('proposals').where('status', '==', 'active').orderBy('_updated.utc', 'desc')
       },
       {
         name: 'History',
-        ref: commonRef.collection('proposals') // TODO: To be defined
+        ref: commonRef
+          .collection('proposals') // TODO: To be defined
           .where('status', '!=', 'active')
           .orderBy('_updated.utc', 'desc')
-      },
-    ],
+      }
+    ]
   };
 };
 
@@ -64,10 +62,10 @@ export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
             .collection('commons')
             .where('__name__', 'in', userMetadata.recent.commonIds)
             .where('status', '==', 'active')
-            .limit(10),
-        },
-      ],
-    },
+            .limit(10)
+        }
+      ]
+    }
   };
 };
 
@@ -82,10 +80,10 @@ export const listAll = (userId: string): ScreenContent => {
             .collection('commons')
             .where('members.active', 'array-contains', userId)
             .where('status', '==', 'active')
-            .limit(10),
-        },
-      ],
-    },
+            .limit(10)
+        }
+      ]
+    }
   };
 };
 
@@ -93,9 +91,6 @@ export const remove = (commonRef: DocumentReference) => {
   return commonRef.delete();
 };
 
-export const addTransaction = (
-  commonRef: DocumentReference,
-  docData: Transaction
-) => {
+export const addTransaction = (commonRef: DocumentReference, docData: Transaction) => {
   return commonRef.collection('transactions').add(docData);
 };

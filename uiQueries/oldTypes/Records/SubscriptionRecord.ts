@@ -1,6 +1,6 @@
-import {Timestamp} from 'firebase';
-import {BaseRecord} from './BaseRecord';
-import {PaymentStatus} from './PaymentRecord';
+import { Timestamp } from 'firebase';
+import { BaseRecord } from './BaseRecord';
+import { PaymentStatus } from './PaymentRecord';
 
 export interface SubscriptionRecord extends BaseRecord {
   /**
@@ -107,9 +107,4 @@ export interface SubscriptionMetadata {
  * CanceledByUser - The subscription is not active, because the user has canceled it. The membership may
  * still be active, but it will be revoked on the next due date
  */
-export type SubscriptionStatus =
-  | 'Pending'
-  | 'Active'
-  | 'CanceledByUser'
-  | 'CanceledByPaymentFailure'
-  | 'PaymentFailed';
+export type SubscriptionStatus = 'Pending' | 'Active' | 'CanceledByUser' | 'CanceledByPaymentFailure' | 'PaymentFailed';

@@ -1,6 +1,6 @@
-import {BaseRecord} from './BaseRecord';
-import {Timestamp} from 'firebase';
-import {PERMISSIONS} from './Permission';
+import { BaseRecord } from './BaseRecord';
+import { Timestamp } from 'firebase';
+import { PERMISSIONS } from './Permission';
 
 export interface CommonRecord extends BaseRecord {
   fundingGoalDeadline: number;

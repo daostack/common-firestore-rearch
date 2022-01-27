@@ -1,43 +1,41 @@
-import {Timestamp} from 'firebase';
+import { Timestamp } from 'firebase';
 
 export interface UserRecord {
-  
   /**
    * The time that the entity
    * was created
    */
-   createdAt: Timestamp;
+  createdAt: Timestamp;
 
-   /**
-    * The last time that the entity
-    * was modified
-    */
-   updatedAt: Timestamp;
-
-   /**
-    * 
-    */
-  recentProposalsIds: string[];
-  
   /**
-   * 
+   * The last time that the entity
+   * was modified
+   */
+  updatedAt: Timestamp;
+
+  /**
+   *
+   */
+  recentProposalsIds: string[];
+
+  /**
+   *
    */
   recentCommonsIds: string[];
 
-
   /**
-   * 
+   *
    */
-   recentMembershipRequest: string[];
+  recentMembershipRequest: string[];
 
   /**
-   * 
+   *
    */
   proposals: {
-    all: number,
-    active: number,
-    history: number
-  }
+    all: number;
+    active: number;
+    history: number;
+  };
 
   // TODO: remove "uid" from the users collection and use "id";
   // The users collection is the only one that has & use "uid" instead of "id" for representing the unique id.
@@ -67,11 +65,11 @@ export interface UserPublicData {
 }
 
 export interface UserPaymentMethod {
-  cardType: string,
+  cardType: string;
   cardHolderName: string;
   cardNumberLast4Digits: number;
   cardExpiry: {
     month: number;
     year: number;
-  }
+  };
 }

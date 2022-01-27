@@ -38,5 +38,5 @@ export type Role = 'founder' | 'moderator' | 'other';
 
 export enum PERMISSIONS {
   MODERATOR = 'Moderator',
-  FOUNDER = 'founder',
+  FOUNDER = 'founder'
 }

@@ -1,8 +1,7 @@
-import { db, DocumentReference } from 'firebase'
-import { UserMetadata, UserRecord, ScreenContent, Moderation } from '../types'
+import { db } from 'firebase';
+import { UserMetadata, UserRecord, ScreenContent } from '../types';
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
-
   return {
     mainScreen: {
       name: 'My proposals'
@@ -11,10 +10,7 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
       {
         // Tab 1 - All
         name: 'All',
-        ref: db
-          .collectionGroup('proposals')
-          .where('__name__', 'in', userMetadata.recent.proposalIds)
-          .limit(10)
+        ref: db.collectionGroup('proposals').where('__name__', 'in', userMetadata.recent.proposalIds).limit(10)
       },
       {
         // Tab 2 - Active
@@ -35,5 +31,5 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
           .limit(10)
       }
     ]
-  }
-}
+  };
+};
