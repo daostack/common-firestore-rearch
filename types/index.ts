@@ -10,8 +10,9 @@ export interface BaseRecord {
   status: string; // enum: [ 'Active', 'Inactive', 'Deleted' ]
   notes?: string;
   tags?: string[]; // Tags for a document
-  created: DocumentDateTime;
-  updated: DocumentDateTime;
+  hiddenBy?: DocumentDateTime
+  _created: DocumentDateTime;
+  _updated: DocumentDateTime;
 }
 
 /*
@@ -53,6 +54,12 @@ export interface Event {
 interface DocumentDateTime {
   user: UserProfile;
   utc: Timestamp; // The time that the update was made
+}
+
+export interface FileObject {
+  filename: string
+  bucket: string;
+  objectPath: string;
 }
 
 export interface ScreenContent {

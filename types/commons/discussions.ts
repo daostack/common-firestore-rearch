@@ -1,9 +1,21 @@
-import { BaseRecord } from "..";
+import { BaseRecord, FileObject } from "..";
 
 export interface Discussion extends BaseRecord {
   // Add moderation notes for UI to fulfil...
-  // Hidden bu {user.name} on {_created.utc}
+  // Hidden by {user.name} on {_created.utc}
   parentCollection: string;
+  /*
+    UI developer notes
+    ==================
+    Title: name
+    Profile picture: _created.user.profilePic
+    User name: _created.user.name
+    Date created: _created.utc
+  */
+  counts: {
+    comments: number;
+  }
+  files: FileObject[];
 }
 
 export interface Comment extends BaseRecord {

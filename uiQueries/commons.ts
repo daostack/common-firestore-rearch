@@ -34,15 +34,20 @@ export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
         name: 'Discussions',
         ref: commonRef
           .collection('discussions')
-          .where('status', 'in', showDiscussions),
+          .where('status', 'in', showDiscussions)
+          .sortBy('_updated.utc', 'DESC')
       },
       {
         name: 'Proposals',
-        ref: commonRef.collection('proposals').where('status', '==', 'active'),
+        ref: commonRef.collection('proposals')
+          .where('status', '==', 'active')
+          .sortBy('_updated.utc', 'DESC')
       },
       {
         name: 'History',
-        ref: commonRef.collection('proposals').where('status', '!=', 'active'),
+        ref: commonRef.collection('proposals') // TODO: To be defined
+          .where('status', '!=', 'active')
+          .sortBy('_updated.utc', 'DESC')
       },
     ],
   };
