@@ -35,19 +35,19 @@ export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
         ref: commonRef
           .collection('discussions')
           .where('status', 'in', showDiscussions)
-          .sortBy('_updated.utc', 'DESC')
+          .orderBy('_updated.utc', 'desc')
       },
       {
         name: 'Proposals',
         ref: commonRef.collection('proposals')
           .where('status', '==', 'active')
-          .sortBy('_updated.utc', 'DESC')
+          .orderBy('_updated.utc', 'desc')
       },
       {
         name: 'History',
         ref: commonRef.collection('proposals') // TODO: To be defined
           .where('status', '!=', 'active')
-          .sortBy('_updated.utc', 'DESC')
+          .orderBy('_updated.utc', 'desc')
       },
     ],
   };

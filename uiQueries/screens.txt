@@ -43,8 +43,8 @@
 08.06.13    => commonsMembership.saveSubscription - Success response from 08.06.12 (TODO: Change to userMembership)
 08.06.??    => commonsMembership.saveSubscription - // TODO: - There's no error screen for 08.06.12 (TODO: Change to userMembership)
 08.07.1     => userDashboard *** Need to understand how to flag new proposals rather than just recents
-08.08.06    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and sortBy created DESC
-08.08.07    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and sortBy created DESC
+08.08.06    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and orderBy created DESC
+08.08.07    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and orderBy created DESC
 08.09.1     => userProfile.saveBankAccount - is shown twice.  The second version is to add a bank account with a bank list name.
 Further clarification needed
 08.09.2     => userProfile.saveBankAccount
