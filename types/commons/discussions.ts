@@ -1,4 +1,10 @@
-import { BaseRecord, FileObject } from "..";
+import { BaseRecord } from '../BaseRecord';
+
+export interface FileObject {
+  filename: string;
+  bucket: string;
+  objectPath: string;
+}
 
 export interface Discussion extends BaseRecord {
   // Add moderation notes for UI to fulfil...
@@ -14,11 +20,10 @@ export interface Discussion extends BaseRecord {
   */
   counts: {
     comments: number;
-  }
+  };
   files: FileObject[];
 }
 
 export interface Comment extends BaseRecord {
-
   parentCollection: string;
 }

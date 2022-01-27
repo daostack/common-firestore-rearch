@@ -56,5 +56,5 @@ export enum ScreenId {
   Screen08_09_1,
   Screen08_09_2,
   Screen08_09_3,
-  Screen08_09_4,
+  Screen08_09_4
 }

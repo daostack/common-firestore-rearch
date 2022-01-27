@@ -1,7 +1,3 @@
-import { BaseRecord } from "..";
+import { BaseRecord } from '../BaseRecord';
 
-export interface CommonRule extends BaseRecord {
-  // No additional fields required
-  // Rule title => name
-  // Rule description => intro
-}
+export type CommonRule = BaseRecord;

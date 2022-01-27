@@ -1,22 +1,24 @@
-import {Timestamp} from 'firebase';
-import { BaseRecord, Currency, UserProfile } from "..";
+import { Timestamp } from 'firebase';
+import { BaseRecord } from '../BaseRecord';
+import { UserProfile } from '../UserProfile';
+import { Currency } from '../Currency';
 
 export interface Transaction extends BaseRecord {
   common: UserProfile;
   member: UserProfile;
   proposal?: UserProfile;
   currency: Currency;
-  amountNett: number;
+  amountNett: number; // TODO: strip out tax.
   taxRate: number;
   amountTax: number;
   amountTotal: number;
   accounting: {
-    type: string;            // type to include: oneTimeContribution | subscription | payment | expense
-    ref: string;             // The accounting code reference
-    name: string;            // The display name
+    type: string; // type to include: oneTimeContribution | subscription | payment | expense
+    ref: string; // The accounting code reference
+    name: string; // The display name
     fullyAllocated: boolean; // Has this transaction been fully allocated?
     allocations: Allocation[];
-  }
+  };
 }
 
 interface Allocation {
