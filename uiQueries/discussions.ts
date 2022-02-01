@@ -25,7 +25,14 @@ export const addComment = (parentRef: DocumentReference, docData: Comment) => {
   // TODO: Security Rules: Comment must be a child of a discussion
 };
 
-export const list = (discussionRef:DocumentReference):ScreenContent => {
+export const view = (discussionRef:DocumentReference, showHidden:boolean):ScreenContent => {
+
+  // Show only active or active and hidden
+  const showDiscussions = ['active'];
+  if (showHidden) {
+    showDiscussions.push('hidden');
+  }
+
   return {
     mainScreen: {
       name: '{discussion.name}',
@@ -36,7 +43,7 @@ export const list = (discussionRef:DocumentReference):ScreenContent => {
         },
         {
           name: 'Comments',
-          ref: discussionRef.collection('comments')
+          ref: discussionRef.collection('comments').where('status', 'in', showDiscussions).orderBy('_updated.utc', 'desc')
         }
       ]
     }
