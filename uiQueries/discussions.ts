@@ -1,5 +1,5 @@
 import { DocumentReference } from 'firebase';
-import { Discussion, Comment } from 'types';
+import { Discussion, Comment, ScreenContent } from 'types';
 
 export const addDiscussion = (parentRef: DocumentReference, docData: Discussion) => {
   // Identify the parent type
@@ -24,3 +24,21 @@ export const addComment = (parentRef: DocumentReference, docData: Comment) => {
   return parentRef.collection('comments').add(docData);
   // TODO: Security Rules: Comment must be a child of a discussion
 };
+
+export const list = (discussionRef:DocumentReference):ScreenContent => {
+  return {
+    mainScreen: {
+      name: '{discussion.name}',
+      components: [
+        {
+          name: 'Discussion',
+          ref: discussionRef
+        },
+        {
+          name: 'Comments',
+          ref: discussionRef.collection('comments')
+        }
+      ]
+    }
+  }
+}

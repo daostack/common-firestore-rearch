@@ -128,10 +128,14 @@ Further clarification needed
 10.09.02.08 => moderation.show                // TODO:
 10.09.03.01 => // No Firebase interaction required
 10.09.1     => commons.view
+10.09.2     => commons.view // Possible numbered incorrectly as 10.10.2
 10.09.3     => commons.view
 10.09.4     => commons.view
-10.10.2     => commons.view // Possible numbered incorrectly and should be 10.09.2
-
+10.10.1     => discussions.list
+10.10.2     => discussions.list
+10.10.3     => discussions.list
+10.10.4     => discussions.list
+10.10.5     => discussions.list
 12.6        => commons.view // Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view // Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
