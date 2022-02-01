@@ -43,8 +43,8 @@
 08.06.13    => commonsMembership.saveSubscription - Success response from 08.06.12 (TODO: Change to userMembership)
 08.06.??    => commonsMembership.saveSubscription - // TODO: - There's no error screen for 08.06.12 (TODO: Change to userMembership)
 08.07.1     => userDashboard *** Need to understand how to flag new proposals rather than just recents
-08.08.06    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and orderBy created DESC
-08.08.07    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and orderBy created DESC
+08.08.06    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and sortBy created DESC
+08.08.07    => userDashboard *** Show all Commons, Proposals & Discussions TODO: Add discussion and sortBy created DESC
 08.09.1     => userProfile.saveBankAccount - is shown twice.  The second version is to add a bank account with a bank list name.
 Further clarification needed
 08.09.2     => userProfile.saveBankAccount
@@ -99,9 +99,15 @@ Further clarification needed
 10.05.1     => commons.view
 10.05.2     => commons.view
 10.05.3     => commons.view && user.uid not in commonDoc.members.active
+10.06.1     => commons.about
+10.06.2     => commons.about
+10.06.3     => commons.about
+10.06.4     => commons.about
+10.06.5     => commons.about
+10.06.6     => commons.about
 10.07.1     => commonsMembers.list
 10.07.2     => commonsMembers.list
-10.07.3     => commonsMembers.list
+10.07.3     => commonsMembers.list // TODO: Incorporate Events and History
 10.09.0     => commons.view
 10.09.01.01 => commons.view (showHidden: true)
 10.09.01.02 => commons.view (showHidden: true)
@@ -120,13 +126,14 @@ Further clarification needed
 10.09.02.06 => moderation.add // Promise resolves
 10.09.02.07 => commons.view (showHidden: true)
 10.09.02.08 => moderation.show                // TODO:
+10.09.03.01 => // No Firebase interaction required
 10.09.1     => commons.view
 10.09.3     => commons.view
 10.09.4     => commons.view
 10.10.2     => commons.view // Possible numbered incorrectly and should be 10.09.2
 
-12.6        => commons.view Your uid is in members.pending array // AMOS View agenda?
-12.7        => commons.view Your uid is in members.pending array
+12.6        => commons.view // Your uid is in members.pending array // AMOS View agenda?
+12.7        => commons.view // Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
 14.01.04    => userProfile.listNotifications
 14.01.05    => userProfile.listNotifications // Add startAfter then the ref of the last document

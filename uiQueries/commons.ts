@@ -51,6 +51,24 @@ export const view = (commonId: string, showHidden?: boolean): ScreenContent => {
   };
 };
 
+export const about = (commonRef: DocumentReference):ScreenContent => {
+  return {
+    mainScreen: {
+      name: 'Agenda and Rules'
+    },
+    sections: [
+      {
+        name: 'About',
+        ref: commonRef
+      },
+      {
+        name: 'Rules of conduct',
+        ref: commonRef.collection('rules')
+      }
+    ]
+  }
+}
+
 export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
   return {
     mainScreen: {
