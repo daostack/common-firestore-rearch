@@ -25,6 +25,14 @@ export const addComment = (parentRef: DocumentReference, docData: Comment) => {
   // TODO: Security Rules: Comment must be a child of a discussion
 };
 
+export const editComment = (docRef: DocumentReference, docData: Comment) => {
+  return docRef.update(docData);
+};
+
+export const deleteComment = (docRef: DocumentReference, docData: Comment) => {
+  return docRef.delete();
+};
+
 export const addFile = (commentRef:DocumentReference):StorageReference => {
   // Need to discuss about adding photos.  Will a comment have more than one photo?
   // Should we use the comment ID as the filename or as a holding directory
