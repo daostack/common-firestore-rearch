@@ -1,4 +1,4 @@
-import { DocumentReference } from 'firebase';
+import { DocumentReference, StorageReference } from 'firebase';
 import { Discussion, Comment, ScreenContent } from 'types';
 
 export const addDiscussion = (parentRef: DocumentReference, docData: Discussion) => {
@@ -24,6 +24,13 @@ export const addComment = (parentRef: DocumentReference, docData: Comment) => {
   return parentRef.collection('comments').add(docData);
   // TODO: Security Rules: Comment must be a child of a discussion
 };
+
+export const addFile = (commentRef:DocumentReference):StorageReference => {
+  // Need to discuss about adding photos.  Will a comment have more than one photo?
+  // Should we use the comment ID as the filename or as a holding directory
+  // Should photos be resized?
+  // TODO:
+}
 
 export const view = (discussionRef:DocumentReference, showHidden:boolean):ScreenContent => {
 
