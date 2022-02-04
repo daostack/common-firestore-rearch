@@ -138,11 +138,16 @@ Further clarification needed
 10.10.01.05 => moderation.add
 10.10.01.06 => moderation.add
 10.10.01.07 => moderation.add
+10.10.02.01 => discussion.view showHidden = true
+10.10.02.02 => discussion.view showHidden = false
+10.10.02.03 => discussion.view showHidden = true
 10.10.1     => discussions.view
 10.10.2     => discussions.view
 10.10.3     => discussions.view
 10.10.4     => discussions.view
 10.10.5     => discussions.view
+12.07.5     => // TODO: Payment failed - One time
+12.07.6     => // TODO: Payment failed - Monthly
 12.6        => commons.view // Your uid is in members.pending array // AMOS View agenda?
 12.7        => commons.view // Your uid is in members.pending array
 14.01.03    => userProfile.listNotifications
