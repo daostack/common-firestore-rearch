@@ -1,1 +1,2 @@
-// Add StorageReference from Cloud Storage for Firebase TODO: Amos
+import { FirebaseStorageTypes } from '@react-native-firebase/storage';
+export type StorageReference = FirebaseStorageTypes.Reference;
