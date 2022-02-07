@@ -12,6 +12,7 @@ export interface Transaction extends BaseRecord {
   taxRate: number;
   amountTax: number;
   amountTotal: number;
+  // description = 'Joined this common', 'Monthly charge', 'One time contribution', etc.
   accounting: {
     type: string; // type to include: oneTimeContribution | subscription | payment | expense
     ref: string; // The accounting code reference
