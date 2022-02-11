@@ -9,3 +9,11 @@
 
 // When a document is hidden, update the hiddenBy value
 // When a document is deleted, add it back, set the status to deleted and save the old version in the history sub-collection
+
+/*
+Callable functions
+==================
+
+
+
+*/
