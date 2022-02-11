@@ -10,6 +10,9 @@ export interface UserMetadata {
     proposalIds: string[]; // An array of the recently viewed Proposal IDs
   };
   localCurrency?: Currency; // The user's local currency code
+  newbieFlags: {
+    createdFirstCommon?: boolean    // Has this user created their first common?
+  }
 }
 
 // TODO test

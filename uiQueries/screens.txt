@@ -182,7 +182,8 @@ Further clarification needed
 13.04.04    => discussions.view
 13.04.05    => discussions.view
 13.04.06    => discussions.view
-14.01.02    => // TODO: I don't understand this
+14.01.01    => commonsFinance.viewAll
+14.01.02    => commonsFinances.viewMonth
 14.01.03    => commonsFinance.viewAll
 14.01.03    => userProfile.listNotifications
 14.01.04    => commonsFinance.viewAll
@@ -192,5 +193,10 @@ Further clarification needed
 14.01.06    => userProfile.listNotifications
 14.01.06    => commonsFinances.viewMonth
 14.01.07    => commonsFinances.viewMonth
+15.01.01    => // No Firebase interaction required
 15.01.02    => As 10.02.1
-
+5.01.1      => commons.listAll
+5.02.1      => commons.listAll
+5.03.1      => commons.listAll
+5.03.2      => commons.listAll
+5.03.03     => // Value retrieved from UserRecord `newbieFlags.createdFirstCommon`

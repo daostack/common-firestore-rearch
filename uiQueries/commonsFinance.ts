@@ -15,7 +15,7 @@ export const viewAll = (commonRef: DocumentReference):ScreenContent => {
     tabs: [
       {
         name: "Paid",
-        ref: commonRef // TODO: Awaiting UI mockup
+        ref: commonRef.collection('financeMonthlyTotals').where('type', '==', 'paid').orderBy('month', 'DESC')
       },
       {
         name: "Raised",

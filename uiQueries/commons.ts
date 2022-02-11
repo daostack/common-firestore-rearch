@@ -90,18 +90,36 @@ export const listRecent = (userMetadata: UserMetadata): ScreenContent => {
 export const listAll = (userId: string): ScreenContent => {
   return {
     mainScreen: {
-      name: 'My commons',
-      components: [
-        {
-          name: 'My Commons',
-          ref: db
-            .collection('commons')
-            .where('members.active', 'array-contains', userId)
-            .where('status', '==', 'active')
-            .limit(10)
-        }
-      ]
-    }
+      name: 'Commons',
+    },
+    sections: [
+      {
+        name: 'My Commons',
+        ref: db
+          .collection('commons')
+          .where('members.active', 'array-contains', userId)
+          .where('status', '==', 'active')
+          .orderBy('name')
+          .limit(10)
+      },
+      {
+        name: 'Pending',
+        ref: db
+          .collection('commons')
+          .where('members.pending', 'array-contains', userId)
+          .where('status', '==', 'active')
+          .orderBy('name')
+          .limit(10)
+      },
+      {
+        name: 'Featured',
+        ref: db
+          .collection('commons')
+          .where('status', '==', 'active')
+          // TODO: Needs a sort order
+          .limit(10)
+      }
+    ]
   };
 };
 
