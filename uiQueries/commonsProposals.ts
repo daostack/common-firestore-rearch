@@ -1,4 +1,4 @@
-import { db } from 'firebase';
+import { db, DocumentReference } from 'firebase';
 import { UserMetadata, UserRecord, ScreenContent } from '../types';
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
@@ -33,3 +33,27 @@ export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): S
     ]
   };
 };
+
+export const view = (userRef: DocumentReference, proposalRef: DocumentReference): ScreenContent => {
+  // Get the proposal and the voting result for the user
+  const proposalId = proposalRef.id;
+  return {
+    mainScreen: {
+      name: "Proposal",
+      components: [
+        {
+          name: "Proposal",
+          ref: proposalRef
+        },
+        {
+          name: "Available balance",
+          ref: proposalRef.parent.parent
+        },
+        {
+          name: "Current voting status",
+          ref: userRef.collection('votes').doc(proposalId)
+        }
+      ]
+    }
+  }
+}
