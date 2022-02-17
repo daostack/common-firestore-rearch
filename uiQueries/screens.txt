@@ -171,7 +171,12 @@ Further clarification needed
 11.01.19    => commonsProposals.view
 11.01.20    => commonsProposals.view
 11.01.21    => commonsProposals.view
+11.01.22    => commonsProposals.view
 11.02.1     => commonsProposals.view
+11.02.1     => discussions.view // Funding proposals chat (duplicate page number)
+11.02.2     => discussions.view
+11.02.3     => discussions.view
+11.02.4     => discussions.view // Funding proposals chat (duplicate page number)
 11.02.4     => commonsProposals.view
 11.02.5     => commonsProposals.view
 11.02.6     => commonsProposals.view
