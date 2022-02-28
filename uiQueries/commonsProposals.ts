@@ -71,12 +71,12 @@ export const listVotes = (proposalRef: DocumentReference): ScreenContent => {
       {
         name: "Approved",
         ref: proposalRef.collection("votes")
-        .where("voteYes", "==", true).orderBy("name")
+        .where("status", "==", "yes").orderBy("name")
       },
       {
         name: "Rejected",
         ref: proposalRef.collection("votes")
-            .where("voteYes", "!=", true).orderBy("name")
+        .where("status", "==", "no").orderBy("name")
       },
     ]
   }
@@ -87,5 +87,5 @@ export const setVote = (proposalRef: DocumentReference, voteDoc: Vote) => {
 
   status = (voteYes) ? "yes" : "no";
 
-  return proposalRef.collection("votes").doc(user.id).set(voteDoc);
+  return proposalRef.collection("votes").doc(user.id).set(voteDoc, {merge: true});
 }
