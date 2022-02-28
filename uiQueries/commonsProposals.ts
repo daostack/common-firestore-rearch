@@ -1,5 +1,5 @@
 import { db, DocumentReference } from 'firebase';
-import { UserMetadata, UserRecord, ScreenContent } from '../types';
+import { UserMetadata, UserRecord, ScreenContent, Vote } from '../types';
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
@@ -51,9 +51,41 @@ export const view = (userRef: DocumentReference, proposalRef: DocumentReference)
         },
         {
           name: "Current voting status",
-          ref: userRef.collection('votes').doc(proposalId)
+          ref: proposalRef.collection('votes').doc(userRef.id)
         }
       ]
     }
   }
+}
+
+export const listVotes = (proposalRef: DocumentReference): ScreenContent => {
+  return {
+    mainScreen: {
+      name: "Votes"
+    },
+    tabs: [
+      {
+        name: "All",
+        ref: proposalRef.collection("votes").orderBy("name")
+      },
+      {
+        name: "Approved",
+        ref: proposalRef.collection("votes")
+        .where("voteYes", "==", true).orderBy("name")
+      },
+      {
+        name: "Rejected",
+        ref: proposalRef.collection("votes")
+            .where("voteYes", "!=", true).orderBy("name")
+      },
+    ]
+  }
+}
+
+export const setVote = (proposalRef: DocumentReference, voteDoc: Vote) => {
+  let {voteYes, parentData: {user}, status} = voteDoc;
+
+  status = (voteYes) ? "yes" : "no";
+
+  return proposalRef.collection("votes").doc(user.id).set(voteDoc);
 }

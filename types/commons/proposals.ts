@@ -1,3 +1,4 @@
+import { DocumentReference } from 'firebase';
 import { Timestamp } from 'firebase/firestore';
 import { BaseRecord, Currency, UserProfile } from 'types';
 
