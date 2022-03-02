@@ -1,5 +1,9 @@
 import { db, DocumentReference } from 'firebase';
-import { UserMetadata, UserRecord, ScreenContent, Vote } from '../types';
+import { UserMetadata, UserRecord, Proposal, ScreenContent, Vote } from '../types';
+
+export const create = (commonRef: DocumentReference, proposalDoc: Proposal) => {
+  return commonRef.collection('proposals').add(proposalDoc);
+};
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {

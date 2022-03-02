@@ -4,18 +4,7 @@ import { BaseRecord, Currency, UserProfile } from 'types';
 
 // TODO: Create internaL Proposal bas record and extend external member and funding proposals
 
-export interface FundingProposal extends Proposal {
-  type: string; // Always 'funding'
-  amount?: number; // The amount of the proposal
-  currency?: Currency; // The currency code
-}
-
-export interface MemberProposal extends Proposal {
-  type: string; // Always 'member'
-  memberCommonCounts?: number; // If this is a member proposal, how many commons do they belong to
-}
-
-interface Proposal extends BaseRecord {
+export interface Proposal extends BaseRecord {
   proposer: UserProfile; // The profile of the proposing member
   // status: string                enum: pending | accepted | rejected
   parentData: {
@@ -25,13 +14,15 @@ interface Proposal extends BaseRecord {
       ref: DocumentReference
     }
   }
-
+  amount?: number; // The amount of the (funding) proposal
+  currency?: Currency; // The currency of the funding proposal
   counts: {
     votes: {
       yes: number; // The number of yes votes for this proposal
       no: number; // The number of no votes for this proposal
     };
     discussions: number; // The numbner of discussions in this proposal
+    memberProposalExistingMembership?: number  // If this is a member proposal, how many commons do they already belong to?
   };
 
   votingEnds: Timestamp;
