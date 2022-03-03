@@ -1,29 +1,36 @@
-import { db } from 'firebase';
-import { UserRecord, UserBankAccount, ScreenContent } from '../types';
+import { db, DocumentReference } from 'firebase';
+import { UserRecord, UserBankAccount, ScreenContent, UserPersonalRecord, File } from '../types';
 
 export const createUserRecord = (userDoc: UserRecord) => {
   return db.doc(`users/${userDoc.uid}`).set(userDoc);
 };
 
-export const saveBankAccount = (user: UserRecord, bankAccountDoc: UserBankAccount) => {
-  return db.doc(`users/${user.uid}/private/bankAccount`).set(bankAccountDoc);
+export const saveBankAccount = (userRef: DocumentReference, personalDoc: UserPersonalRecord, bankAccountDoc: UserBankAccount) => {
+  const addBankAccount = [];
+  addBankAccount.push(userRef.collection("private").doc("bankAccount").set(bankAccountDoc));
+  addBankAccount.push(userRef.collection("private").doc("personalRecord").set(bankAccountDoc));
+  return Promise.all(addBankAccount);
 };
 
-export const viewBankAccount = (user: UserRecord): ScreenContent => {
+export const addFile = (userRef: DocumentReference, fileDoc: File) => {
+  return userRef.collection("files").add(fileDoc));
+}
+
+export const viewBankAccount = (userRef: DocumentReference): ScreenContent => {
   return {
     mainScreen: {
       name: 'View Bank Account',
       components: [
         {
           name: 'View bank account',
-          ref: db.doc(`users/${user.uid}/private/bankAccount`)
+          ref: userRef.collection("private").doc("bankAccount")
         }
       ]
     }
   };
 };
 
-export const viewPaymentMethod = (user: UserRecord): ScreenContent => {
+export const viewPaymentMethod = (userRef: DocumentReference): ScreenContent => {
   // More research on Enums required ---- user.status =
   return {
     mainScreen: {
@@ -32,7 +39,7 @@ export const viewPaymentMethod = (user: UserRecord): ScreenContent => {
     sections: [
       {
         name: 'Saved payment method',
-        ref: db.doc(`users/${user.uid}/private/paymentMethod`)
+        ref: userRef.collection("private").doc("paymentMethod")
         // This resource may also contain a tag of 'paymentFailed'
       },
       // TODO: Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
@@ -48,14 +55,14 @@ export const viewPaymentMethod = (user: UserRecord): ScreenContent => {
   };
 };
 
-export const listNotifications = (user: UserRecord): ScreenContent => {
+export const listNotifications = (userRef: DocumentReference): ScreenContent => {
   return {
     mainScreen: {
       name: 'Notifications',
       components: [
         {
           name: 'Notifications',
-          ref: db.collection(`users/${user.uid}/notifications`).orderBy('created.utc', 'desc')
+          ref: userRef.collection("notifications").orderBy('created.utc', 'desc')
           // Limit in the calling application, capture the last page token
           // and then fetch additional pages for infinite scroll
         }

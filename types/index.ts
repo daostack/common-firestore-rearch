@@ -7,6 +7,7 @@ export * from './Transaction';
 export * from './UserProfile';
 export * from './Moderation';
 export * from './Currency';
+export * from './File';
 
 /*
 The page for showing Proposal history in the Members section will require the following fields:

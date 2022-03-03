@@ -192,6 +192,21 @@ Further clarification needed
 11.03.11    => commonsProposals.view
 11.03.12    => commonsProposals.view
 11.03.13    => commonsProposals.view
+11.04.0     => commonsProposals.addFile
+11.04.1     => commonsProposals.create
+11.04.1     => user.saveBankAccount         // Duplicate screen number
+11.04.2     => commonsProposals.create
+11.04.2     => user.saveBankAccount         // Duplicate screen number
+11.04.3     => commonsProposals.create
+11.04.3     => user.saveBankAccount         // Duplicate screen number
+11.04.4     => commonsProposals.create
+11.04.4     => user.saveBankAccount         // Duplicate screen number
+11.04.5     => commonsProposals.create
+11.04.5     => user.addIdentificationFiles  // Duplicate screen number
+11.04.6     => commonsProposals.create
+11.04.6     => user.saveBankAccount         // Duplicate screen number
+11.04.7     => commonsProposals.create
+
 11.03.14    => commonsProposals.view
 1.03.1     => commonsProposals.view
 12.07.5     => // TODO: Payment failed - One time

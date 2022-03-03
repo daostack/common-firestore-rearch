@@ -1,9 +1,14 @@
 import { db, DocumentReference } from 'firebase';
-import { UserMetadata, UserRecord, Proposal, ScreenContent, Vote } from '../types';
+import { UserMetadata, UserRecord, Proposal, ScreenContent, Vote, File } from '../types';
 
 export const create = (commonRef: DocumentReference, proposalDoc: Proposal) => {
   return commonRef.collection('proposals').add(proposalDoc);
 };
+
+export const addFile = (proposalRef: DocumentReference, proposalFileDoc: File) => {
+  return proposalRef.collection('files').add(proposalFileDoc);
+};
+
 
 export const listMyProposals = (user: UserRecord, userMetadata: UserMetadata): ScreenContent => {
   return {
@@ -56,6 +61,14 @@ export const view = (userRef: DocumentReference, proposalRef: DocumentReference)
         {
           name: "Current voting status",
           ref: proposalRef.collection('votes').doc(userRef.id)
+        },
+        {
+          name: "Files",
+          ref: proposalRef.collection("files").where("type", "==", "file").orderBy("name")
+        },
+        {
+          name: "Images",
+          ref: proposalRef.collection("files").where("type", "==", "image").orderBy("name")
         }
       ]
     }

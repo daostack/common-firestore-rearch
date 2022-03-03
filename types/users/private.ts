@@ -1,3 +1,4 @@
+import { Timestamp } from 'firebase/firestore';
 import { BaseRecord, Currency } from 'types';
 
 export interface UserMetadata {
@@ -26,9 +27,17 @@ export interface UserPaymentMethod extends BaseRecord {
   };
 }
 
+export interface UserPersonalRecord extends BaseRecord {
+  idReference: string;
+  issueDate: string;          // YYYY-MM-DD
+  dateOfBirth: string;        // YYYY-MM-DD
+  gender: string;             // TODO: This could pose some issues to allow inclusivity
+  phone: string;              // e.164 formatted phone number
+  email: string;
+}
+
 // TODO: review what financial information we are storing, in terms of regulation and simplicity.
 export interface UserBankAccount extends BaseRecord {
-  bankIDNumber?: number;
   sortCode: number;
   accountNumber: number;
 }
