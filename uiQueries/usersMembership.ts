@@ -62,3 +62,28 @@ export const viewSubscription = (user: UserRecord, commonId: string, subscriptio
     }
   };
 };
+
+export const viewPaymentMethod = (userRef: DocumentReference): ScreenContent => {
+  // More research on Enums required ---- user.status =
+  return {
+    mainScreen: {
+      name: 'Billing'
+    },
+    sections: [
+      {
+        name: 'Saved payment method',
+        ref: userRef.collection("private").doc("paymentMethod")
+        // This resource may also contain a tag of 'paymentFailed'
+      },
+      // TODO: Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
+      {
+        name: 'Monthly contributions',
+        ref: db
+          .collectionGroup('subscriptions')
+          .where('user.uid', '==', userRef.id)
+          .where('status', '==', 'active')
+          .limit(10)
+      }
+    ]
+  };
+};

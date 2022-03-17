@@ -13,7 +13,7 @@ export const saveBankAccount = (userRef: DocumentReference, personalDoc: UserPer
 };
 
 export const addFile = (userRef: DocumentReference, fileDoc: File) => {
-  return userRef.collection("files").add(fileDoc));
+  return userRef.collection("files").add(fileDoc);
 }
 
 export const viewBankAccount = (userRef: DocumentReference): ScreenContent => {
@@ -27,31 +27,6 @@ export const viewBankAccount = (userRef: DocumentReference): ScreenContent => {
         }
       ]
     }
-  };
-};
-
-export const viewPaymentMethod = (userRef: DocumentReference): ScreenContent => {
-  // More research on Enums required ---- user.status =
-  return {
-    mainScreen: {
-      name: 'Billing'
-    },
-    sections: [
-      {
-        name: 'Saved payment method',
-        ref: userRef.collection("private").doc("paymentMethod")
-        // This resource may also contain a tag of 'paymentFailed'
-      },
-      // TODO: Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
-      {
-        name: 'Monthly contributions',
-        ref: db
-          .collectionGroup('subscriptions')
-          .where('user.uid', '==', user.uid)
-          .where('status', '==', 'active')
-          .limit(10)
-      }
-    ]
   };
 };
 
