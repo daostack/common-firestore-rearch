@@ -1,6 +1,6 @@
 import { BaseRecord } from '../index';
 export * from './notifications';
-export * from './subscriptions';
+export * from './membership';
 export * from './votes';
 export * from './private';
 

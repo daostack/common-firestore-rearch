@@ -1,7 +1,7 @@
 import { BaseRecord } from '../BaseRecord';
 import { UserProfile } from '../UserProfile';
 
-export interface CommonSubscription extends BaseRecord {
+export interface UserMembership extends BaseRecord {
   user: UserProfile;
   common: {
     id: string; // The ID of the parent common

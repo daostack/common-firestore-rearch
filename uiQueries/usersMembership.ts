@@ -1,5 +1,5 @@
 import { db, DocumentReference } from 'firebase';
-import { UserMetadata, UserRecord, ScreenContent, CommonSubscription } from '../types';
+import { UserMetadata, UserRecord, ScreenContent, UserMembership } from '../types';
 
 // TODO: resolve unused _userMetadata
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -40,23 +40,28 @@ export const listMyMembershipRequests = (user: UserRecord, _userMetadata: UserMe
   };
 };
 
-export const saveSubscription = (subscriptionRef: DocumentReference, subscriptionDoc: CommonSubscription) => {
-  return subscriptionRef.set(subscriptionDoc);
+export const create = (membershipRef: DocumentReference, membershipDoc: UserMembership) => {
+  membershipDoc.status = "pending";
+  return membershipRef.set(membershipDoc);
 };
 
-export const deleteSubscription = (subscriptionRef: DocumentReference) => {
-  return subscriptionRef.delete();
+export const save = (membershipRef: DocumentReference, membershipDoc: UserMembership) => {
+  return membershipRef.set(membershipDoc);
 };
 
-export const viewSubscription = (user: UserRecord, commonId: string, subscriptionId: string): ScreenContent => {
+export const remove = (membershipRef: DocumentReference) => {
+  return membershipRef.delete();
+};
+
+export const view = (user: UserRecord, commonId: string, membershipId: string): ScreenContent => {
   // More research on Enums required ---- user.status =
   return {
     mainScreen: {
       name: 'Billing',
       components: [
         {
-          name: 'Subscription',
-          ref: db.doc(`commons/${commonId}/subscriptions/${subscriptionId}`)
+          name: 'Membership',
+          ref: db.doc(`commons/${commonId}/subscriptions/${membershipId}`)
         }
       ]
     }

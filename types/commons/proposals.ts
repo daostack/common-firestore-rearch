@@ -14,8 +14,21 @@ export interface Proposal extends BaseRecord {
       ref: DocumentReference
     }
   }
-  amount?: number; // The amount of the (funding) proposal
-  currency?: Currency; // The currency of the funding proposal
+
+  // Finance proposals
+  amount?: number;      // The amount of the (funding) proposal
+  currency?: Currency;  // The currency of the funding proposal
+
+  // Membership proposals
+  intro?: string;       // Introduction to the member
+  externalProfiles?: [
+    {
+      name: string;       // The name of the profile provider eg. Facebook, Twitter, etc.
+      url: string;        // The URL to the user's profile
+    }
+  ]
+  commonsRulesAccepted?: boolean; // Has the user accepted the rules of the common?
+
   counts: {
     votes: {
       yes: number; // The number of yes votes for this proposal
