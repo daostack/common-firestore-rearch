@@ -61,7 +61,7 @@ export const view = (user: UserRecord, commonId: string, membershipId: string): 
       components: [
         {
           name: 'Membership',
-          ref: db.doc(`commons/${commonId}/subscriptions/${membershipId}`)
+          ref: db.doc(`commons/${commonId}/memberships/${membershipId}`)
         }
       ]
     }
@@ -80,11 +80,10 @@ export const viewPaymentMethod = (userRef: DocumentReference): ScreenContent => 
         ref: userRef.collection("private").doc("paymentMethod")
         // This resource may also contain a tag of 'paymentFailed'
       },
-      // TODO: Remove and create a new file userSubscriptions.ts for viewing the payment method and subscriptions
       {
         name: 'Monthly contributions',
         ref: db
-          .collectionGroup('subscriptions')
+          .collectionGroup('memberships')
           .where('user.uid', '==', userRef.id)
           .where('status', '==', 'active')
           .limit(10)
