@@ -32,7 +32,7 @@ export interface Common extends BaseRecord {
     balance: number; // The current balance (CF)
     totalRaised: number; // Total raised (CF)
     currency: Currency; // The currency for the Common
-    subscriptions: number; // Number of subscriptions
+    memberships: number; // Number of memberships
     minimums: {
       oneTime: number; // TODO:  - Is this immutable (UI)
       monthly: number; // TODO:  - Is this immutable (UI)

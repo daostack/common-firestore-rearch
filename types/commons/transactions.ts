@@ -14,7 +14,7 @@ export interface Transaction extends BaseRecord {
   amountTotal: number;
   // description = 'Joined this common', 'Monthly charge', 'One time contribution', etc.
   accounting: {
-    type: string; // type to include: oneTimeContribution | subscription | payment | expense
+    type: string; // type to include: oneTimeContribution | monthly | payment | expense
     ref: string; // The accounting code reference
     name: string; // The display name
     fullyAllocated: boolean; // Has this transaction been fully allocated?
@@ -30,11 +30,11 @@ interface Allocation {
 
 /*
 
-*** Example transactions - Monthly subscription and payment ***
+*** Example transactions - Monthly contribution and payment ***
 
-  Monthly subscription with ID "Foo12345"
+  Monthly contribution with ID "Foo12345"
   {
-    "name": "Monthly subscription from John Smith",
+    "name": "Monthly contribution from John Smith",
     "member": { "id": "123456789", "name": "John Smith", "profilePic": "123456789" },
     "common": { "id": "123456789", "name": "Save the trees", "profilePic": "123456789" },
     "currency": { "code": "GBP", "name": "GB Pound", "symbol": "£" },
@@ -44,8 +44,8 @@ interface Allocation {
     "amountTotal": 12,
     "accounting": {
       "type": "income",
-      "ref": "subscription",
-      "name": "Income - Subscription",
+      "ref": "contribution",
+      "name": "Income - Membership",
       "fullyAllocated": True
       "allocations": [
         {
@@ -57,7 +57,7 @@ interface Allocation {
     }
   }
 
-    Subscription payment with ID "Bar12345"
+    Membership payment with ID "Bar12345"
   {
     "name": "Payment received from John Smith",
     "member": { "id": "123456789", "name": "John Smith", "profilePic": "123456789" },

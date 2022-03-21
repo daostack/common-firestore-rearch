@@ -14,4 +14,4 @@ export interface UserMembership extends BaseRecord {
   startDate: string; // YYYY-MM-DD
 }
 
-export type CommonSubscriptionTransaction = BaseRecord;
+export type CommonContributionTransaction = BaseRecord;

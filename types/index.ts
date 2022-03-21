@@ -15,6 +15,6 @@ The page for showing Proposal history in the Members section will require the fo
 * Member of x commons
 * Number of votes accepted, rejected
 * Number of discussions
-* Fixed / monthly subscription
+* Fixed / monthly contributions
 * The profile pic of a user with a tick (clarification needed)
 */
