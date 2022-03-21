@@ -27,12 +27,12 @@
 08.03.1     => commonsProposals.listMyProposals
 08.03.2     => commons.listRecent
 08.03.3     => commonsMembership.listMyMembership requests
-08.05.00    => usersMembership.viewPaymentMethod (TODO: view subscriptions?)
-08.05.01    => usersMembership.viewPaymentMethod (TODO: view subscriptions?)
-08.05.02    => usersMembership.viewPaymentMethod (TODO: view subscriptions?)
-08.05.03    => usersMembership.viewPaymentMethod (TODO: view subscriptions?)
+08.05.00    => usersMembership.viewPaymentMethod
+08.05.01    => usersMembership.viewPaymentMethod
+08.05.02    => usersMembership.viewPaymentMethod
+08.05.03    => usersMembership.viewPaymentMethod
 08.06.1     => userDashboard
-08.06.02    => Subscription - Status active
+08.06.02    => Membership - Status active
 08.06.03.01 => usersMembership.save
 08.06.03.02 => commonsProposals.create
 08.06.03.03 => usersMembership.view
