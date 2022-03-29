@@ -1,5 +1,5 @@
 import { DocumentReference } from 'firebase';
-import { ScreenContent } from 'types';
+import { ScreenContent, Transaction } from 'types';
 
 export const viewAll = (commonRef: DocumentReference):ScreenContent => {
   return {

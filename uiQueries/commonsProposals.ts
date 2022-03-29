@@ -75,6 +75,22 @@ export const view = (userRef: DocumentReference, proposalRef: DocumentReference)
   }
 }
 
+export const listInvoices = (proposalRef: DocumentReference): ScreenContent => {
+  // Get the proposal and the voting result for the user
+  const proposalId = proposalRef.id;
+  return {
+    mainScreen: {
+      name: "Invoices",
+      components: [
+        {
+          name: "Invoices",
+          ref: proposalRef.collection("files").where("type", "==", "invoice").orderBy("name")
+        }
+      ]
+    }
+  }
+}
+
 export const listVotes = (proposalRef: DocumentReference): ScreenContent => {
   return {
     mainScreen: {
@@ -106,3 +122,4 @@ export const setVote = (proposalRef: DocumentReference, voteDoc: Vote) => {
 
   return proposalRef.collection("votes").doc(user.id).set(voteDoc, {merge: true});
 }
+
